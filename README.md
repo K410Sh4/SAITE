@@ -76,3 +76,12 @@ As melhorias reduzem trabalho desnecessário, mas FPS, consumo de energia e mem�
 - Computador: clicar e arrastar com o botão esquerdo, usar a roda do mouse sobre o carrossel ou fazer scroll horizontal pelo trackpad.
 - Uma rotação da roda não captura a rolagem indefinidamente: apenas o evento que alterna o card é consumido, com intervalo mínimo entre mudanças.
 - Toques curtos continuam selecionando um card diretamente, e arrastes não disparam cliques acidentais.
+
+## Página Sobre mim e currículos públicos
+
+- URL: `./sobre.html` — acessada pelo botão **Sobre mim** do cabeçalho.
+- Três versões de currículo para consulta: TI/Suporte, Atendimento/Caixa e Geral.
+- Os textos foram revisados para a apresentação pública, com somente a experiência autônoma de suporte de informática listada nas seções de experiência profissional.
+- Os antigos currículos do arquivo pessoal não são copiados para este repositório; dados de telefone não são divulgados.
+- Use **Imprimir / salvar em PDF** na versão selecionada para obter o arquivo via diálogo de impressão do navegador.
+- Interface responsiva e imprimível em A4, com seleção acessível via teclado.

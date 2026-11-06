@@ -388,9 +388,4 @@ if ('IntersectionObserver' in window) {
 }
 startAuto();
 
-const aboutDialog = document.querySelector('#aboutDialog');
-document.querySelector('#aboutButton').addEventListener('click', () => aboutDialog.showModal());
-document.querySelector('#aboutClose').addEventListener('click', () => aboutDialog.close());
-aboutDialog.addEventListener('click', (event) => { if (event.target === aboutDialog) aboutDialog.close(); });
-
 initGoogleAuth(showToast);
