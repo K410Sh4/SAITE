@@ -5,7 +5,7 @@ Página inicial estática, responsiva e sem build: `index.html`, `styles.css`, `
 ## Recursos
 
 - Header compacto (5–10% de altura) com marca à esquerda, **Sobre** e conta Google à direita.
-- Carrossel 3D com **3 cards** e progressão suave em perspectiva, com navegação, pausa no hover/foco, setas do teclado e suporte a `prefers-reduced-motion`.
+- Carrossel 3D em **perspectiva de profundidade**: card próximo e grande à esquerda, intermediário ao centro, distante e pequeno à direita. O movimento automático aproxima os cards da direita para a esquerda, preservando navegação, pausa no hover/foco, setas do teclado e `prefers-reduced-motion`.
 - Área de preview ampla abaixo do carrossel. A troca de projeto aplica blur diretamente a todos os blocos da prévia (título, descrição, moldura, conteúdo e rodapé), com substituição sincronizada no pico do desfoque.
 - Três conceitos visuais construídos em HTML/CSS, sem imagens externas: loja editorial, loja aquática e painel de administração.
 - Login Google com Firebase Authentication, visualização do perfil e logout **assim que configurado**.

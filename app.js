@@ -57,14 +57,13 @@ function renderCards() {
 
 function updateCardPositions() {
   track.querySelectorAll('.project-card').forEach((button, index) => {
-    const delta = (index - current + projects.length) % projects.length;
-    const offset = delta === projects.length - 1 ? -1 : delta;
-    const active = offset === 0;
-    button.style.setProperty('--offset', String(offset));
-    button.style.setProperty('--distance', String(Math.abs(offset)));
-    button.style.setProperty('--scale', active ? '1' : '.76');
-    button.style.setProperty('--opacity', active ? '1' : '.82');
-    button.style.setProperty('--layer', active ? '3' : '2');
+    // A ordem é sempre: próximo à esquerda, intermediário, distante à direita.
+    // Ao avançar, a posição intermediária cresce e assume a dianteira;
+    // o terceiro card vem do fundo e o antigo primeiro retorna à distância.
+    const distance = (index - current + projects.length) % projects.length;
+    const depth = ['near', 'middle', 'far'][distance];
+    const active = distance === 0;
+    button.dataset.depth = depth;
     button.dataset.active = String(active);
     button.setAttribute('aria-pressed', String(active));
   });
