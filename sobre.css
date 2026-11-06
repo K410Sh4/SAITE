@@ -33,7 +33,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #a3ffe0;outline-offset:3p
     "value value";
   grid-template-rows:minmax(225px,1.13fr) minmax(142px,.62fr) minmax(232px,1.06fr) minmax(69px,.31fr);
 }
-@media(min-width:1281px) and (min-height:690px){
+@media(min-width:1281px) and (min-height:760px){
   html,body{height:100%}
   body{overflow:hidden}
   .dashboard{height:calc(100svh - 64px);min-height:626px}
@@ -184,8 +184,11 @@ body[data-view=cliente] .lens-card[data-lens=cliente],body[data-view=tecnica] .l
 .resume-paper p{margin:0 0 9px}.resume-paper ul{margin:6px 0 0;padding-left:20px}.resume-paper li{margin-bottom:5px}
 .paper-right{border-left:1px solid #d9e8de;padding-left:22px}
 @media(max-height:820px) and (min-width:1281px){
- .dashboard{gap:8px;padding-top:8px;padding-bottom:8px;grid-template-rows:minmax(222px,1.12fr) minmax(136px,.60fr) minmax(218px,1.03fr) minmax(65px,.3fr)}
- .hero-inner{padding:14px 21px}
+ .dashboard{gap:8px;padding-top:8px;padding-bottom:8px;grid-template-rows:minmax(242px,1.12fr) minmax(132px,.60fr) minmax(215px,1.03fr) minmax(64px,.3fr)}
+ .hero-inner{padding:12px 21px}
+ .hero-tags,.hero-location{display:none}
+ .hero-inner .hero-summary{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+ .hero-inner .hero-actions{margin-top:auto;padding-top:5px}
  .hero-inner h1{font-size:clamp(28px,2.6vw,43px);margin-bottom:9px}
  .hero-slogan{font-size:clamp(18px,1.5vw,23px)}
  .hero-summary{font-size:10px;line-height:1.37}
@@ -196,7 +199,7 @@ body[data-view=cliente] .lens-card[data-lens=cliente],body[data-view=tecnica] .l
  .checks span{font-size:8px}
  .case-photo{height:35%}
 }
-@media(max-width:1280px), (max-height:689px){
+@media(max-width:1280px), (max-height:759px){
  body{overflow-x:hidden}
  .dashboard{height:auto;grid-template-rows:auto auto auto auto;min-height:calc(100svh - 64px)}
  .hero-panel,.perspective-panel{min-height:312px}
