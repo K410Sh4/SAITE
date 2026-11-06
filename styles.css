@@ -97,40 +97,22 @@ h1 { font-size: clamp(34px, 4.1vw, 66px); line-height: 1.06; letter-spacing: -.0
 .preview-content { height: clamp(450px,67vw,920px); min-height: 63vh; overflow: hidden; background: #eee; }
 .preview-content iframe { height: 100%; width: 100%; border: 0; background: white; display: block; }
 .preview-foot { display: flex; justify-content: space-between; max-width: 1600px; margin: 17px auto 0; color: #5f6874; font-size: 10px; font-weight: 700; letter-spacing: .14em; }
-/* Transição radial: o glow é radial; o blur é 16 CSS px em todos os pontos da tela. */
-.radial-transition {
-  --preview-blur-radius: 16px;
-  --preview-fade-duration: 400ms;
-  position: fixed;
-  inset: 0;
-  z-index: 90;
-  pointer-events: none;
-  visibility: hidden;
-  opacity: 0;
-  will-change: opacity;
-  transition: opacity var(--preview-fade-duration) cubic-bezier(.22,.72,.23,1), visibility 0s linear var(--preview-fade-duration);
-}
-.radial-transition::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(10,12,18,.19);
-  -webkit-backdrop-filter: blur(var(--preview-blur-radius));
-  backdrop-filter: blur(var(--preview-blur-radius));
-}
-.radial-transition::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 68% 56% at 50% 50%, rgba(202,237,225,.17), rgba(119,161,170,.08) 50%, transparent 86%);
-}
-.radial-transition.is-active {
-  visibility: visible;
+/* O desfoque incide nos blocos reais da prévia, não sobre a tela. */
+.preview-section > .preview-head,
+.preview-section > .browser-frame,
+.preview-section > .preview-foot {
+  filter: blur(0);
   opacity: 1;
-  transition: opacity var(--preview-fade-duration) cubic-bezier(.22,.72,.23,1), visibility 0s;
+  transition:
+    filter 420ms cubic-bezier(.4, 0, .2, 1),
+    opacity 420ms cubic-bezier(.4, 0, .2, 1);
 }
-@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .radial-transition::before { background: rgba(10,12,18,.90); }
+.preview-section.is-switching > .preview-head,
+.preview-section.is-switching > .browser-frame,
+.preview-section.is-switching > .preview-foot {
+  filter: blur(14px);
+  opacity: .36;
+  pointer-events: none;
 }
 .about-dialog { padding: 0; border: 1px solid #3b4548; background: #171d25; color: white; max-width: min(540px,90vw); border-radius: 22px; box-shadow: 0 28px 90px rgba(0,0,0,.55); }
 .about-dialog::backdrop { background: rgba(2,4,9,.7); backdrop-filter: blur(9px); }
@@ -254,5 +236,4 @@ h1 { font-size: clamp(34px, 4.1vw, 66px); line-height: 1.06; letter-spacing: -.0
 }
 @media (prefers-reduced-motion: reduce) {
   *,*::before,*::after {scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;}
-  .radial-transition {display:none;}
 }

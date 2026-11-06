@@ -10,7 +10,8 @@ const previewContent = document.querySelector('#previewContent');
 const previewAddress = document.querySelector('#previewAddress');
 const previewLabel = document.querySelector('#previewLabel');
 const visitLink = document.querySelector('#visitLink');
-const transition = document.querySelector('#radialTransition');
+const previewSection = document.querySelector('#preview');
+const previewFrame = previewSection.querySelector('.browser-frame');
 const carousel = document.querySelector('#carousel');
 const toast = document.querySelector('#toast');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -109,24 +110,32 @@ function clearTransitionTimers() {
 function completeTransitionImmediately() {
   clearTransitionTimers();
   transitionPhase = 'idle';
-  transition.classList.remove('is-active');
+  previewSection.classList.remove('is-switching');
+  previewSection.removeAttribute('aria-busy');
   updatePreview(current);
 }
 
+// A substituição acontece apenas após o elemento real estar desfocado.
 function finishBlurIn() {
   if (transitionPhase !== 'covering') return;
   clearTimeout(switchTimer);
   switchTimer = null;
-  // Substituir a prévia apenas quando o overlay cobrir toda a janela.
   updatePreview(current);
   transitionPhase = 'revealing';
   requestAnimationFrame(() => {
-    if (transitionPhase === 'revealing') transition.classList.remove('is-active');
+    if (transitionPhase === 'revealing') {
+      previewSection.classList.remove('is-switching');
+    }
   });
-  // Reserva caso o navegador não emita transitionend (ex.: aba suspensa).
-  revealTimer = setTimeout(() => {
-    if (transitionPhase === 'revealing') transitionPhase = 'idle';
-  }, 550);
+  revealTimer = setTimeout(finishReveal, 640);
+}
+
+function finishReveal() {
+  if (transitionPhase !== 'revealing') return;
+  clearTimeout(revealTimer);
+  revealTimer = null;
+  transitionPhase = 'idle';
+  previewSection.removeAttribute('aria-busy');
 }
 
 function selectProject(next, { animate = true } = {}) {
@@ -138,23 +147,20 @@ function selectProject(next, { animate = true } = {}) {
     completeTransitionImmediately();
     return;
   }
-  // Cliques rápidos atualizam o destino sem reiniciar o desfoque já em curso.
+  // Cliques rápidos durante o blur atualizam o destino, sem reiniciar a animação.
   if (transitionPhase === 'covering') return;
   clearTransitionTimers();
   transitionPhase = 'covering';
-  transition.classList.add('is-active');
-  // O CSS controla o tempo exato; este timer cobre browsers sem transitionend.
-  switchTimer = setTimeout(finishBlurIn, 550);
+  previewSection.setAttribute('aria-busy', 'true');
+  previewSection.classList.add('is-switching');
+  switchTimer = setTimeout(finishBlurIn, 640);
 }
 
-transition.addEventListener('transitionend', (event) => {
-  if (event.target !== transition || event.propertyName !== 'opacity') return;
+// O sinal de conclusão vem do próprio CSS filter do preview.
+previewFrame.addEventListener('transitionend', (event) => {
+  if (event.target !== previewFrame || event.propertyName !== 'filter') return;
   if (transitionPhase === 'covering') finishBlurIn();
-  else if (transitionPhase === 'revealing') {
-    clearTimeout(revealTimer);
-    revealTimer = null;
-    transitionPhase = 'idle';
-  }
+  else if (transitionPhase === 'revealing') finishReveal();
 });
 
 function stopAuto() {
