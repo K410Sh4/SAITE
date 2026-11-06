@@ -27,6 +27,13 @@ let carouselVisible = true;
 let previewVisible = !('IntersectionObserver' in window);
 let hoverPaused = false;
 let focusPaused = false;
+let dragState = null;
+let dragFrame = null;
+let pendingDragShift = 0;
+let suppressClickUntil = 0;
+let wheelAccumulated = 0;
+let lastWheelAt = 0;
+let lastWheelStepAt = 0;
 const previewNodeCache = new Map();
 
 function showToast(message) {
@@ -201,9 +208,123 @@ function stopAuto() {
 }
 function startAuto() {
   stopAuto();
-  if (reducedMotion.matches || document.hidden || !carouselVisible || hoverPaused || focusPaused) return;
+  if (reducedMotion.matches || document.hidden || !carouselVisible || hoverPaused || focusPaused || dragState) return;
   autoTimer = setInterval(() => selectProject(current + 1), 7200);
 }
+
+
+/**
+ * Gestos horizontais: arraste com o dedo ou mouse para mudar um projeto.
+ * O CSS touch-action:pan-y deixa a rolagem vertical com o navegador.
+ */
+function resetDragVisual() {
+  if (dragFrame !== null) cancelAnimationFrame(dragFrame);
+  dragFrame = null;
+  pendingDragShift = 0;
+  carousel.classList.remove('is-dragging');
+  track.style.removeProperty('--drag-shift');
+}
+
+function cancelDrag() {
+  if (!dragState) return;
+  dragState = null;
+  resetDragVisual();
+  startAuto();
+}
+
+carousel.addEventListener('pointerdown', (event) => {
+  if (!event.isPrimary || (event.pointerType === 'mouse' && event.button !== 0)) return;
+  if (dragState) return;
+  dragState = {
+    id: event.pointerId,
+    startX: event.clientX,
+    startY: event.clientY,
+    startTime: performance.now(),
+    dragging: false,
+  };
+  stopAuto();
+});
+
+carousel.addEventListener('pointermove', (event) => {
+  const state = dragState;
+  if (!state || event.pointerId !== state.id) return;
+  const dx = event.clientX - state.startX;
+  const dy = event.clientY - state.startY;
+  if (!state.dragging) {
+    // Nunca interceptar uma tentativa de rolagem vertical.
+    if (Math.abs(dy) > 12 && Math.abs(dy) > Math.abs(dx) * 1.15) {
+      cancelDrag();
+      return;
+    }
+    if (Math.abs(dx) < 12 || Math.abs(dx) < Math.abs(dy) * 1.15) return;
+    state.dragging = true;
+    carousel.classList.add('is-dragging');
+    try { carousel.setPointerCapture(event.pointerId); } catch { /* Ponteiro já liberado. */ }
+  }
+  if (event.cancelable && event.pointerType === 'mouse') event.preventDefault();
+  pendingDragShift = Math.max(-135, Math.min(135, dx * .55));
+  if (dragFrame === null) {
+    dragFrame = requestAnimationFrame(() => {
+      track.style.setProperty('--drag-shift', pendingDragShift + 'px');
+      dragFrame = null;
+    });
+  }
+});
+
+function endDrag(event, cancelled = false) {
+  const state = dragState;
+  if (!state || event.pointerId !== state.id) return;
+  const dx = event.clientX - state.startX;
+  const elapsed = performance.now() - state.startTime;
+  dragState = null;
+  if (state.dragging) {
+    // Impede que o click sintético após o swipe selecione acidentalmente um card.
+    suppressClickUntil = performance.now() + 380;
+    resetDragVisual();
+    if (!cancelled && (Math.abs(dx) >= Math.min(90, Math.max(42, carousel.clientWidth * .095))
+      || (Math.abs(dx) >= 27 && elapsed < 240))) {
+      selectProject(current + (dx < 0 ? 1 : -1));
+    }
+  }
+  if (carousel.hasPointerCapture(event.pointerId)) {
+    try { carousel.releasePointerCapture(event.pointerId); } catch { /* Já liberado. */ }
+  }
+  startAuto();
+}
+
+carousel.addEventListener('pointerup', (event) => endDrag(event));
+carousel.addEventListener('pointercancel', (event) => endDrag(event, true));
+window.addEventListener('blur', cancelDrag);
+carousel.addEventListener('dragstart', (event) => event.preventDefault());
+carousel.addEventListener('click', (event) => {
+  if (performance.now() < suppressClickUntil) {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+  }
+}, true);
+
+// Roda vertical do mouse e gestos horizontais do trackpad.
+// Consome somente o evento que realmente muda o projeto, sem prender a rolagem.
+carousel.addEventListener('wheel', (event) => {
+  if (event.ctrlKey || document.hidden || !carouselVisible || dragState) return;
+  const raw = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+  const pixels = raw * (event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? carousel.clientHeight : 1);
+  if (Math.abs(pixels) < 1) return;
+  const now = performance.now();
+  if (now - lastWheelAt > 300 || Math.sign(wheelAccumulated) !== Math.sign(pixels)) {
+    wheelAccumulated = 0;
+  }
+  lastWheelAt = now;
+  if (now - lastWheelStepAt < 700) return;
+  wheelAccumulated += pixels;
+  if (Math.abs(wheelAccumulated) < 44) return;
+  const direction = Math.sign(wheelAccumulated);
+  wheelAccumulated = 0;
+  lastWheelStepAt = now;
+  event.preventDefault();
+  selectProject(current + direction);
+  startAuto();
+}, { passive: false });
 
 renderCards();
 selectProject(0, { animate: false });

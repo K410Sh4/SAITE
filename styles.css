@@ -64,8 +64,21 @@ h1 { font-size: clamp(34px, 4.1vw, 66px); line-height: 1.06; letter-spacing: -.0
   perspective: 1550px;
   perspective-origin: 50% 48%;
   isolation: isolate;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
 }
-.carousel-track { position: absolute; inset: 0; transform-style: preserve-3d; }
+.carousel-track {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transform: translate3d(var(--drag-shift, 0px), 0, 0);
+  transition: transform 320ms cubic-bezier(.22,.76,.16,1);
+}
+.carousel.is-dragging .carousel-track { transition: none; will-change: transform; }
+.carousel .project-card { cursor: grab; }
+.carousel.is-dragging .project-card { cursor: grabbing; }
+.carousel img { -webkit-user-drag: none; user-select: none; }
 .rail {
   position: absolute;
   left: 8%;

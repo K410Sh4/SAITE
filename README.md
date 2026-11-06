@@ -5,7 +5,7 @@ Página inicial estática, responsiva e sem build: `index.html`, `styles.css`, `
 ## Recursos
 
 - Header compacto (5–10% de altura) com marca à esquerda, **Sobre** e conta Google à direita.
-- Carrossel 3D em **perspectiva de profundidade**: card próximo e grande à esquerda, intermediário ao centro, distante e pequeno à direita. O movimento automático aproxima os cards da direita para a esquerda, preservando navegação, pausa no hover/foco, setas do teclado e `prefers-reduced-motion`.
+- Carrossel 3D em **perspectiva de profundidade**: card próximo e grande à esquerda, intermediário ao centro, distante e pequeno à direita. Navegação por arraste horizontal com dedo ou mouse, roda do mouse e trackpad, setas, teclado, autoplay e `prefers-reduced-motion`. A rolagem vertical da página continua disponível.
 - Área de preview ampla abaixo do carrossel. A troca de projeto aplica blur diretamente a todos os blocos da prévia (título, descrição, moldura, conteúdo e rodapé), com substituição sincronizada no pico do desfoque.
 - Projetos reais **Margot Acessórios** e **Espaço Piscina** nas duas primeiras posições, com capas leves usando imagens dos próprios sites; terceiro card preservado como conceito Control Center.
 - Login Google com Firebase Authentication, visualização do perfil e logout **assim que configurado**.
@@ -69,3 +69,10 @@ As melhorias reduzem trabalho desnecessário, mas FPS, consumo de energia e mem�
 - Quando a seção de preview aparece na tela, carrega somente o iframe do projeto selecionado; ao sair da seção, volta à capa estática para reduzir trabalho de CPU/GPU, especialmente no celular.
 - O botão **Visitar projeto** permite abrir a página completa caso o navegador ou o site bloqueie a incorporação em iframe.
 - Uma prévia incorporada pode executar recursos do próprio site (ex.: GSAP). A carga é feita sob demanda, não ao navegar no carrossel.
+
+## Gestos do carrossel
+
+- Celular: arrastar horizontalmente para a esquerda/direita muda o projeto; arrastar verticalmente continua rolando a página.
+- Computador: clicar e arrastar com o botão esquerdo, usar a roda do mouse sobre o carrossel ou fazer scroll horizontal pelo trackpad.
+- Uma rotação da roda não captura a rolagem indefinidamente: apenas o evento que alterna o card é consumido, com intervalo mínimo entre mudanças.
+- Toques curtos continuam selecionando um card diretamente, e arrastes não disparam cliques acidentais.
