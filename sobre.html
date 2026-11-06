@@ -1,175 +1,154 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b1015">
-  <meta name="description" content="Conheça Kaio Fellipe Custódio Teodoro: formação em Informática, suporte técnico e desenvolvimento de experiências web. Veja o currículo e saiba como posso ajudar seu projeto.">
-  <meta property="og:title" content="Sobre mim | Kaio Fellipe — SAITE">
-  <meta property="og:description" content="Tecnologia com método, sites com propósito. Conheça meu perfil profissional, minhas competências e meu processo de criação.">
-  <title>Sobre mim | Kaio Fellipe — SAITE</title>
-  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./sobre.css">
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js" defer></script>
-  <script src="./sobre.js" defer></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#081211">
+<meta name="description" content="Kaio Fellipe Custódio Teodoro: suporte técnico, infraestrutura e criação de sites. Conheça meus projetos, minha abordagem e meu currículo de TI.">
+<title>Sobre mim · Kaio Fellipe | SAITE</title>
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./sobre.css">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js" defer></script>
+<script src="./sobre.js" defer></script>
 </head>
-<body>
-  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
-  <header class="sitebar">
-    <a class="sitebrand" href="./index.html" aria-label="SAITE — página inicial"><span class="brand-icon" aria-hidden="true">S<span>.</span></span><strong>SAITE</strong><span class="brand-divider" aria-hidden="true"></span><small>PORTFÓLIO DIGITAL</small></a>
-    <nav class="site-nav" aria-label="Menu da página">
-      <a class="nav-desktop" href="#trajetoria">Minha trajetória</a>
-      <a class="nav-desktop" href="#metodo">Meu método</a>
-      <a class="nav-desktop" href="#curriculo">Currículo</a>
-      <a class="nav-contact" href="mailto:elgator833@gmail.com?subject=Projeto%20de%20site%20-%20SAITE">Falar comigo <span aria-hidden="true">↗</span></a>
-    </nav>
-  </header>
+<body data-view="cliente">
+<a class="skip-link" href="#conteudo">Pular para apresentação</a>
+<header class="topbar">
+  <a class="brand" href="./index.html" aria-label="SAITE, voltar à página inicial"><span class="brand-logo" aria-hidden="true">◢</span><span class="brand-name">SAITE</span><span class="brand-divider"></span><span class="brand-desc">PORTFÓLIO DE SOLUÇÕES DIGITAIS</span></a>
+  <nav class="nav" aria-label="Navegação principal">
+    <a href="./index.html">Início</a>
+    <a class="current" href="./sobre.html" aria-current="page">Sobre mim</a>
+    <a href="./index.html#portfolio">Projetos</a>
+    <a href="#processo">Processo</a>
+    <a href="#contato">Contato</a>
+  </nav>
+  <a class="top-contact" href="mailto:elgator833@gmail.com?subject=Projeto%20de%20site%20-%20SAITE">Conversar sobre meu site <span aria-hidden="true">↗</span></a>
+</header>
+<main id="conteudo" class="dashboard">
+  <section class="hero-panel" aria-labelledby="hero-title">
+    <div class="hero-ambient" aria-hidden="true"><div class="ambient-monitor"><div class="ambient-line"></div><div class="ambient-line"></div><div class="ambient-line"></div></div><div class="ambient-orbit"></div></div>
+    <div class="hero-inner">
+      <p class="label-line"><span></span> SOBRE MIM</p>
+      <h1 id="hero-title">Kaio Fellipe<br>Custódio Teodoro</h1>
+      <p class="hero-slogan" id="heroSlogan">Transformo problemas em <em>soluções digitais.</em></p>
+      <p class="hero-summary" id="heroSummary">Sou técnico em Informática, atuo com suporte autônomo e desenvolvo sites. Minha proposta é combinar organização, tecnologia e experiência de uso para criar soluções que façam sentido.</p>
+      <div class="hero-tags" aria-label="Áreas de atuação"><span>Suporte técnico</span><span>Infraestrutura</span><span>Projetos web</span></div>
+      <div class="hero-actions"><a class="action-primary" href="#projetos">Conhecer projetos <span aria-hidden="true">↗</span></a><button type="button" class="action-secondary" data-open-resume>Currículo de TI <span aria-hidden="true">↗</span></button></div>
+      <span class="hero-location"><span class="status-light" aria-hidden="true"></span> Alfenas, Minas Gerais</span>
+    </div>
+  </section>
 
-  <main id="conteudo">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-grid" aria-hidden="true"></div>
-      <div class="wrap hero-layout">
-        <div class="hero-copy">
-          <p class="eyebrow hero-enter"><span class="small-line"></span> SOBRE MIM <span class="eyebrow-soft">/ TECNOLOGIA & CRIAÇÃO</span></p>
-          <div class="hero-name hero-enter">KAIO FELLIPE<br><span>CUSTÓDIO TEODORO.</span></div>
-          <h1 id="hero-title" class="hero-enter">Entender o problema.<br><em>Construir a solução.</em></h1>
-          <p class="hero-description hero-enter">Sou técnico em Informática, atuo com suporte a computadores e usuários e desenvolvo projetos web. Gosto de unir raciocínio técnico, atenção aos detalhes e design para criar experiências que funcionem de verdade.</p>
-          <div class="hero-actions hero-enter">
-            <a class="button button-primary" href="#porque">Por que me contratar? <span aria-hidden="true">↗</span></a>
-            <a class="button button-outline" href="#curriculo">Meu currículo <span aria-hidden="true">↓</span></a>
-          </div>
-          <div class="hero-meta hero-enter">
-            <span><span class="signal" aria-hidden="true"></span> Alfenas, Minas Gerais</span>
-            <span>Suporte técnico & desenvolvimento web</span>
-          </div>
-        </div>
-
-        <div class="hero-art hero-enter" aria-label="Composição ilustrativa de uma interface web em desenvolvimento, sem representar um projeto de cliente">
-          <div class="art-top"><span>SAITE / DESIGN + TECNOLOGIA</span><span class="art-pulse" aria-hidden="true"></span></div>
-          <div class="art-window">
-            <div class="art-browser"><span class="art-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>projeto / experiência digital</span><span class="art-window-icon" aria-hidden="true">↗</span></div>
-            <div class="art-website">
-              <div class="art-website-text"><span class="art-kicker">IDENTIDADE DIGITAL</span><strong>Uma presença<br>que faz <em>sentido.</em></strong><span class="art-button">Explorar projeto <span aria-hidden="true">↗</span></span></div>
-              <div class="art-circles" aria-hidden="true"><div class="orbit-one"></div><div class="orbit-two"></div><div class="orbit-center"><span>◈</span></div></div>
-            </div>
-            <div class="art-subnav"><span>ESTRATÉGIA</span><span>DESIGN</span><span>TECNOLOGIA</span></div>
-          </div>
-          <div class="art-float art-float-a"><span class="art-label">BASE TÉCNICA</span><strong>Informática</strong><span>Hardware • Redes • Sistemas</span></div>
-          <div class="art-float art-float-b"><span class="art-code" aria-hidden="true">&lt;/&gt;</span><div><strong>Desenvolvimento web</strong><small>Estrutura, visual e experiência</small></div></div>
-          <div class="art-footnote">VISUAL CONCEITUAL · REPRESENTAÇÃO DE INTERFACE</div>
-        </div>
+  <section class="perspective-panel" aria-labelledby="perspective-title">
+    <div class="lens-head"><div><p class="label-line label-small"><span></span> DUAS FORMAS DE EXPLORAR</p><h2 id="perspective-title">Você escolhe a perspectiva.</h2></div>
+      <div class="lens-switch" role="group" aria-label="Tipo de apresentação">
+        <button type="button" data-mode="cliente" aria-pressed="true"><span aria-hidden="true">◉</span> Visão cliente</button>
+        <button type="button" data-mode="tecnica" aria-pressed="false"><span aria-hidden="true">⌘</span> Visão técnica</button>
       </div>
-      <a class="scroll-cue" href="#trajetoria">CONTINUE EXPLORANDO <span aria-hidden="true">↓</span></a>
-    </section>
+    </div>
+    <div class="lens-grid">
+      <article class="lens-card" data-lens="cliente">
+        <span class="lens-icon" aria-hidden="true">▥</span>
+        <h3>Visão cliente</h3><p class="lens-overline">NEGÓCIO, CLAREZA E PROPÓSITO</p>
+        <p>Entenda como uma presença digital organizada pode valorizar sua marca e facilitar o contato com seu público.</p>
+        <div class="checks"><span>Identidade e usabilidade</span><span>Informações bem apresentadas</span><span>Experiência pensada para pessoas</span></div>
+      </article>
+      <article class="lens-card" data-lens="tecnica">
+        <span class="lens-icon" aria-hidden="true">⌘</span>
+        <h3>Visão técnica</h3><p class="lens-overline">TECNOLOGIA E DECISÕES</p>
+        <p>Conheça meu interesse por estruturas web, responsividade, suporte, manutenção e testes de funcionamento.</p>
+        <div class="checks"><span>HTML, CSS e JavaScript</span><span>Estrutura e responsividade</span><span>Diagnóstico e melhorias</span></div>
+      </article>
+    </div>
+  </section>
 
-    <section class="intro-statement" aria-labelledby="manifesto-title">
-      <div class="wrap statement-layout" data-reveal>
-        <p class="section-tag">01 / QUEM SOU</p>
-        <div><h2 id="manifesto-title">Não vejo um site apenas como uma página.<br><span>Vejo uma solução para aproximar pessoas e ideias.</span></h2>
-        <p>Minha base é a informática: entender o funcionamento de sistemas, identificar problemas e buscar respostas práticas. Ao criar interfaces web, levo esse mesmo cuidado para o planejamento, a navegação, a clareza das informações e a experiência de quem vai usar o site.</p></div>
-      </div>
-    </section>
+  <section class="assembly" id="processo" aria-labelledby="assembly-title">
+    <div class="assembly-visual" aria-hidden="true">
+      <div class="assembling-window window-back"><span class="tiny-bar"></span><i></i><i></i><i></i></div>
+      <div class="assembling-window window-middle"><span class="tiny-bar"></span><i></i><i></i><i></i></div>
+      <div class="assembling-window window-front"><div class="window-top"><b>SAITE</b><span>● ● ●</span></div><div class="window-content"><span class="window-headline"></span><span class="window-subline"></span><span class="window-cta"></span><span class="window-figure"></span></div></div>
+    </div>
+    <div class="assembly-copy">
+      <p class="label-line label-small"><span></span> UM SITE TAMBÉM TEM UMA HISTÓRIA</p>
+      <h2 id="assembly-title">Ele ganha forma <em>etapa por etapa.</em></h2>
+      <p>Estrutura, identidade, interações e revisão. Veja o processo por trás de uma interface.</p>
+    </div>
+    <div class="assembly-stages" role="group" aria-label="Etapas da construção">
+      <button type="button" class="step" data-step="0" aria-pressed="true"><span class="step-symbol">▱</span><strong>01 · Estrutura</strong><small>Conteúdo e navegação</small></button>
+      <span class="step-arrow" aria-hidden="true">→</span>
+      <button type="button" class="step" data-step="1" aria-pressed="false"><span class="step-symbol">✎</span><strong>02 · Design</strong><small>Composição e identidade</small></button>
+      <span class="step-arrow" aria-hidden="true">→</span>
+      <button type="button" class="step" data-step="2" aria-pressed="false"><span class="step-symbol">⌘</span><strong>03 · Interação</strong><small>Resposta e navegação</small></button>
+      <span class="step-arrow" aria-hidden="true">→</span>
+      <button type="button" class="step" data-step="3" aria-pressed="false"><span class="step-symbol">✓</span><strong>04 · Revisão</strong><small>Teste e melhorias</small></button>
+    </div>
+  </section>
 
-    <section class="section trajectory" id="trajetoria" aria-labelledby="journey-title">
-      <div class="wrap">
-        <div class="section-heading" data-reveal><p class="eyebrow"><span class="small-line"></span> MINHA BASE</p><h2 id="journey-title">Uma trajetória construída<br><em>na prática e no aprendizado.</em></h2><p>Formação técnica e experiência aplicadas à resolução de problemas reais.</p></div>
-        <div class="journey-grid">
-          <div class="journey-timeline">
-            <article class="journey-item" data-reveal><span class="journey-year">2024</span><div><h3>Hardware & manutenção</h3><p>Curso de Montagem e Manutenção de Computadores pelo SENAC, com carga horária de 60 horas.</p></div></article>
-            <article class="journey-item" data-reveal><span class="journey-year">2025</span><div><h3>Ensino Médio</h3><p>Conclusão do Ensino Médio na Escola Estadual Samuel Engel.</p></div></article>
-            <article class="journey-item" data-reveal><span class="journey-year">2026</span><div><h3>Técnico em Informática</h3><p>Formação técnica pelo SENAC Minas, com 1.200 horas de estudo.</p></div></article>
-            <article class="journey-item" data-reveal><span class="journey-year">2026 — atual</span><div><h3>Suporte técnico autônomo</h3><p>Diagnóstico de computadores, montagem e configuração de equipamentos, instalação de sistemas, atendimento a usuários e suporte remoto.</p></div></article>
-          </div>
-          <aside class="journey-aside" data-reveal>
-            <div class="aside-top"><span>PRINCÍPIOS</span><span>01 / 03</span></div>
-            <h3>Aprender.<br>Aplicar.<br><em>Aprimorar.</em></h3>
-            <p>A forma como trabalho parte de três perguntas: qual é o problema, o que realmente precisa mudar e como verificar se a solução funciona?</p>
-            <div class="aside-chips"><span>Diagnóstico</span><span>Clareza</span><span>Evolução</span></div>
-          </aside>
-        </div>
+  <section class="portfolio-panel" id="projetos" aria-label="Projetos e currículo">
+    <div class="portfolio-intro">
+      <p class="label-line label-small"><span></span> PROJETOS EM FORMATO DE HISTÓRIA</p>
+      <h2>Cada projeto é uma <em>história de solução.</em></h2>
+      <p>Conheça os objetivos, as escolhas de interface e os sites publicados.</p>
+      <a class="inline-link" href="./index.html#portfolio">Ver todos os projetos <span aria-hidden="true">↗</span></a>
+    </div>
+    <article class="case-card margot" aria-labelledby="case-margot-title">
+      <div class="case-photo"><img src="https://k410sh4.github.io/Margot/assets/hero-1.webp" alt="Imagem da identidade visual do site Margot Acessórios" loading="lazy" decoding="async"><span class="case-kind">LOJA DIGITAL</span></div>
+      <div class="case-content"><div class="case-title"><h3 id="case-margot-title">Margot</h3><span class="case-indicator">01 / 02</span></div><p class="case-lead" data-case-text="margot">Uma loja de acessórios com identidade delicada, catálogo digital e apresentação dos produtos.</p>
+        <div class="case-track" aria-label="Etapas da história"><span class="on"></span><span></span><span></span></div>
+        <div class="case-actions"><button type="button" data-story="margot">Explorar história <span aria-hidden="true">↗</span></button><a href="https://k410sh4.github.io/Margot/" target="_blank" rel="noopener noreferrer" aria-label="Abrir site Margot em nova aba">Site ↗</a></div>
       </div>
-    </section>
+    </article>
+    <article class="case-card piscina" aria-labelledby="case-piscina-title">
+      <div class="case-photo"><img src="https://k410sh4.github.io/EspacoPiscinas/assets/fachada-espaco-piscina.webp" alt="Fachada utilizada no site Espaço Piscina" loading="lazy" decoding="async"><span class="case-kind">SITE COMERCIAL</span></div>
+      <div class="case-content"><div class="case-title"><h3 id="case-piscina-title">Espaço Piscina</h3><span class="case-indicator">02 / 02</span></div><p class="case-lead" data-case-text="piscina">Uma vitrine para produtos e orientações de piscina, com navegação e canais de contato.</p>
+        <div class="case-track" aria-label="Etapas da história"><span class="on"></span><span></span><span></span></div>
+        <div class="case-actions"><button type="button" data-story="piscina">Explorar história <span aria-hidden="true">↗</span></button><a href="https://k410sh4.github.io/EspacoPiscinas/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Espaço Piscina em nova aba">Site ↗</a></div>
+      </div>
+    </article>
+    <aside class="resume-tile" id="curriculo" aria-labelledby="cv-title">
+      <div class="resume-top"><span class="cv-icon" aria-hidden="true">▤</span><span class="cv-subtitle">SUPORTE & INFRAESTRUTURA</span></div>
+      <h2 id="cv-title">Currículo de TI</h2>
+      <p>Formação e experiência autônoma em suporte técnico, sistemas, hardware e redes.</p>
+      <div class="cv-skills"><span>Windows</span><span>Redes</span><span>Hardware</span><span>AnyDesk</span><span>Microsoft 365 (noções)</span></div>
+      <button type="button" class="cv-btn" data-open-resume>Ver currículo completo <span aria-hidden="true">↗</span></button>
+    </aside>
+  </section>
 
-    <section class="section skills" id="competencias" aria-labelledby="skills-title">
-      <div class="wrap">
-        <div class="section-heading section-heading-split" data-reveal><div><p class="eyebrow"><span class="small-line"></span> CONHECIMENTOS</p><h2 id="skills-title">Competência técnica.<br><em>Visão de experiência.</em></h2></div><p>Uma base para diagnosticar dificuldades, estruturar soluções e desenvolver interfaces úteis.</p></div>
-        <div class="skills-grid">
-          <article class="skill-card" data-reveal><span class="skill-index">01</span><span class="skill-icon" aria-hidden="true">⌘</span><h3>Sistemas & suporte</h3><p>Windows, instalação de software, manutenção de computadores e suporte remoto com AnyDesk.</p><div class="skill-tags"><span>Windows</span><span>Hardware</span><span>Suporte</span></div></article>
-          <article class="skill-card" data-reveal><span class="skill-index">02</span><span class="skill-icon" aria-hidden="true">⌁</span><h3>Redes & infraestrutura</h3><p>TCP/IP, DNS e DHCP; noções de Active Directory, Microsoft 365, Entra ID, ITSM/ITIL e segurança da informação.</p><div class="skill-tags"><span>Redes</span><span>Infraestrutura</span><span>Fundamentos</span></div></article>
-          <article class="skill-card" data-reveal><span class="skill-index">03</span><span class="skill-icon" aria-hidden="true">⌘</span><h3>Web & interfaces</h3><p>Desenvolvimento e aprimoramento de páginas em HTML, CSS e JavaScript, com atenção à responsividade, navegação e desempenho.</p><div class="skill-tags"><span>HTML / CSS</span><span>JavaScript</span><span>Mobile</span></div></article>
-          <article class="skill-card" data-reveal><span class="skill-index">04</span><span class="skill-icon" aria-hidden="true">✳</span><h3>Pessoas & processo</h3><p>Comunicação, organização, responsabilidade, aprendizado contínuo e busca de soluções compreensíveis para cada necessidade.</p><div class="skill-tags"><span>Comunicação</span><span>Organização</span><span>Resolução</span></div></article>
-        </div>
-        <p class="skills-note">Os conhecimentos de Active Directory, Entra ID, Microsoft 365, ITSM/ITIL e segurança são apresentados em nível de fundamentos, conforme meu currículo.</p>
-      </div>
-    </section>
+  <section class="value-strip" id="contato" aria-labelledby="value-title">
+    <div class="value-main"><span class="value-icon" aria-hidden="true">◎</span><div><h2 id="value-title">Por que me escolher para criar seu site?</h2><p>Entendimento do problema, comunicação clara e atenção ao funcionamento.</p></div></div>
+    <div class="value-points"><span>Planejamento</span><span>Responsividade</span><span>Visão técnica</span></div>
+    <a href="mailto:elgator833@gmail.com?subject=Projeto%20de%20site%20-%20SAITE" class="value-cta">Vamos conversar <span aria-hidden="true">↗</span></a>
+  </section>
+</main>
 
-    <section class="section why" id="porque" aria-labelledby="why-title">
-      <div class="wrap">
-        <div class="why-layout">
-          <div class="why-heading" data-reveal><p class="eyebrow"><span class="small-line"></span> POR QUE ME ESCOLHER</p><h2 id="why-title">Seu site precisa<br>ser bonito.<br><em>E precisa fazer sentido.</em></h2><p>Ao desenvolver uma página, minha prioridade não é adicionar efeitos por adicionar. É encontrar uma apresentação adequada ao seu negócio, facilitar a navegação e construir uma base que possa evoluir.</p><a href="./index.html#portfolio" class="inline-link">Explorar meus projetos publicados <span aria-hidden="true">↗</span></a></div>
-          <div class="why-items">
-            <article class="why-item" data-reveal><span>01 /</span><div><h3>Começo pelo problema, não pelo modelo pronto</h3><p>Procuro compreender o público, as informações essenciais e o resultado que a página precisa facilitar antes de decidir o layout.</p></div></article>
-            <article class="why-item" data-reveal><span>02 /</span><div><h3>Equilíbrio entre estética e funcionamento</h3><p>Uma interface pode ter identidade, animação e personalidade sem comprometer legibilidade, organização e uso em celulares.</p></div></article>
-            <article class="why-item" data-reveal><span>03 /</span><div><h3>Olhar técnico para manutenção</h3><p>Minha experiência com suporte me orienta a investigar falhas, rever comportamentos inesperados e melhorar a estrutura quando necessário.</p></div></article>
-            <article class="why-item" data-reveal><span>04 /</span><div><h3>Comunicação clara durante o projeto</h3><p>Valorizo explicar decisões, apresentar alternativas e ajustar a solução ao que realmente será útil para você.</p></div></article>
-          </div>
-        </div>
-      </div>
-    </section>
+<dialog id="storyDialog" class="modal" aria-labelledby="storyTitle">
+  <div class="modal-toolbar"><span>SAITE / ESTUDO DE CASO</span><button type="button" data-close-modal aria-label="Fechar história">✕</button></div>
+  <div class="story-dialog-content"><p class="dialog-tag" id="storyTag"></p><h2 id="storyTitle"></h2><p id="storyIntro"></p>
+    <div id="storySections" class="story-sections"></div><a id="storyVisit" class="dialog-link" target="_blank" rel="noopener noreferrer">Visitar site publicado ↗</a>
+  </div>
+</dialog>
 
-    <section class="section process" id="metodo" aria-labelledby="process-title">
-      <div class="wrap">
-        <div class="section-heading" data-reveal><p class="eyebrow"><span class="small-line"></span> COMO PRETENDO CONSTRUIR SEU PROJETO</p><h2 id="process-title">Um processo com<br><em>início, meio e validação.</em></h2><p>Etapas que proponho para transformar uma ideia em uma presença digital funcional.</p></div>
-        <div class="process-grid" data-reveal>
-          <article><span class="process-number">01</span><div class="process-glyph" aria-hidden="true">◎</div><h3>Entender</h3><p>Objetivo, público, identidade, conteúdo e necessidades.</p></article>
-          <article><span class="process-number">02</span><div class="process-glyph" aria-hidden="true">▤</div><h3>Estruturar</h3><p>Arquitetura, conteúdo, hierarquia visual e navegação.</p></article>
-          <article><span class="process-number">03</span><div class="process-glyph" aria-hidden="true">⌘</div><h3>Desenvolver</h3><p>Interface responsiva, interações e ajustes técnicos.</p></article>
-          <article><span class="process-number">04</span><div class="process-glyph" aria-hidden="true">✓</div><h3>Verificar</h3><p>Testes de uso, revisão de detalhes e melhorias.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section resume-section" id="curriculo" aria-labelledby="resume-title">
-      <div class="wrap">
-        <div class="resume-intro" data-reveal><div><p class="eyebrow"><span class="small-line"></span> DOCUMENTO PROFISSIONAL</p><h2 id="resume-title">Meu currículo<span class="period">.</span></h2><p>Suporte Técnico & Infraestrutura de TI — versão única, baseada na minha formação e experiência.</p></div><button type="button" id="printResume" class="button button-primary print-trigger">Salvar currículo em PDF <span aria-hidden="true">↗</span></button></div>
-        <div class="resume-frame" data-reveal>
-          <div class="resume-toolbar"><span><span class="toolbar-dot" aria-hidden="true"></span> CURRÍCULO • TECNOLOGIA</span><span>REVISADO / 2026</span></div>
-          <article class="resume-paper" id="resume-paper">
-            <header class="paper-header">
-              <div><span class="paper-eyebrow">KAIO FELLIPE CUSTÓDIO TEODORO</span><h3>Suporte Técnico<br>& Infraestrutura</h3></div>
-              <div class="paper-mark" aria-hidden="true">KT.</div>
-            </header>
-            <div class="paper-contact"><span>Alfenas, Minas Gerais</span><span>elgator833@gmail.com</span><span>github.com/K410Sh4</span></div>
-            <div class="paper-layout">
-              <div class="paper-main">
-                <section><h4>Perfil profissional</h4><p>Profissional com formação técnica em Informática e experiência em suporte autônomo a computadores e usuários. Conhecimentos de ambientes Windows, hardware, redes e ferramentas de suporte remoto. Perfil organizado, comunicativo e voltado à resolução de problemas.</p></section>
-                <section><h4>Objetivo profissional</h4><p>Suporte Técnico, Help Desk, Service Desk ou Infraestrutura de TI em nível inicial.</p></section>
-                <section><h4>Experiência profissional</h4><div class="paper-role"><b>Suporte Técnico de Informática — Autônomo / Freelancer</b><span>2026 — atual</span></div><ul><li>Diagnóstico e resolução de problemas em computadores.</li><li>Montagem, manutenção e configuração de equipamentos.</li><li>Instalação e configuração de sistemas operacionais e softwares.</li><li>Atendimento a usuários, suporte remoto e configurações básicas de rede.</li></ul></section>
-                <section><h4>Formação acadêmica e cursos</h4><p><strong>Técnico em Informática</strong> — SENAC Minas · 1.200 horas · 2026</p><p><strong>Hardware: Montagem e Manutenção de Computadores</strong> — SENAC · 60 horas · 2024</p><p><strong>Ensino Médio Completo</strong> — Escola Estadual Samuel Engel · 2025</p></section>
-              </div>
-              <aside class="paper-side">
-                <section><h4>Conhecimentos</h4><ul><li>Windows e Microsoft Office</li><li>Hardware e manutenção</li><li>TCP/IP, DNS e DHCP</li><li>Suporte remoto e AnyDesk</li><li>Noções de Microsoft 365, Active Directory, Entra ID, ITSM/ITIL e segurança da informação</li></ul></section>
-                <section><h4>Idiomas</h4><p>Português: nativo</p><p>Inglês: intermediário, com leitura de textos técnicos</p></section>
-                <section><h4>Competências</h4><p>Comunicação, organização, resolução de problemas, responsabilidade e aprendizado contínuo.</p></section>
-              </aside>
-            </div>
-          </article>
-        </div>
-        <p class="resume-tip">Ao clicar em “Salvar currículo em PDF”, escolha “Salvar como PDF” na janela de impressão do navegador. A impressão inclui somente o currículo.</p>
-      </div>
-    </section>
-
-    <section class="contact-section" aria-labelledby="contact-title">
-      <div class="wrap contact-layout" data-reveal>
-        <div><p class="eyebrow"><span class="small-line"></span> VAMOS CONVERSAR?</p><h2 id="contact-title">Tem uma ideia de site?<br><em>Quero entender seu projeto.</em></h2><p>Podemos começar pelos objetivos, pelo público e pelo que você espera construir. Sem compromisso com uma solução pronta antes de compreender a necessidade.</p></div>
-        <div class="contact-actions"><a class="contact-primary" href="mailto:elgator833@gmail.com?subject=Quero%20conversar%20sobre%20um%20site">Enviar uma mensagem <span aria-hidden="true">↗</span></a><a href="./index.html#portfolio" class="contact-secondary">Ver meus projetos <span aria-hidden="true">↗</span></a></div>
-      </div>
-    </section>
-  </main>
-  <footer class="footer"><a href="./index.html" class="footer-logo">SAITE<span>.</span></a><span>Kaio Fellipe Custódio Teodoro · Alfenas, MG</span><a href="https://github.com/K410Sh4" target="_blank" rel="noopener noreferrer">GitHub ↗</a><span>© 2026</span></footer>
+<dialog id="resumeDialog" class="modal resume-modal" aria-labelledby="resumeTitle">
+ <div class="modal-toolbar"><span>SAITE / CURRÍCULO PROFISSIONAL</span><button type="button" data-close-modal aria-label="Fechar currículo">✕</button></div>
+ <div class="resume-dialog-actions"><span>Suporte Técnico & Infraestrutura</span><button type="button" id="printResume">Imprimir / salvar em PDF ↗</button></div>
+ <article class="resume-paper" id="resumePaper">
+  <header class="paper-heading"><span>KAIO FELLIPE CUSTÓDIO TEODORO</span><small>CURRÍCULO • TECNOLOGIA</small></header>
+  <h2 id="resumeTitle">Suporte Técnico<br>& Infraestrutura</h2>
+  <p class="paper-contact">Alfenas, Minas Gerais · elgator833@gmail.com · github.com/K410Sh4</p>
+  <div class="paper-columns"><div class="paper-left">
+   <section><h3>Perfil profissional</h3><p>Profissional com formação técnica em Informática e experiência em suporte autônomo a computadores e usuários. Conhecimentos de ambientes Windows, hardware, redes e ferramentas de suporte remoto. Perfil organizado, comunicativo e voltado à resolução de problemas.</p></section>
+   <section><h3>Objetivo profissional</h3><p>Suporte Técnico, Help Desk, Service Desk ou Infraestrutura de TI em nível inicial.</p></section>
+   <section><h3>Experiência profissional</h3><p><strong>Suporte Técnico de Informática — Autônomo / Freelancer</strong><br>2026 — atual</p><ul><li>Diagnóstico e resolução de problemas em computadores.</li><li>Montagem, manutenção e configuração de equipamentos.</li><li>Instalação e configuração de sistemas operacionais e softwares.</li><li>Atendimento a usuários, suporte remoto e configurações básicas de rede.</li></ul></section>
+   <section><h3>Formação acadêmica e cursos</h3><p><strong>Técnico em Informática</strong> — SENAC Minas · 1.200 horas · 2026</p><p><strong>Hardware: Montagem e Manutenção de Computadores</strong> — SENAC · 60 horas · 2024</p><p><strong>Ensino Médio Completo</strong> — Escola Estadual Samuel Engel · 2025</p></section>
+  </div><aside class="paper-right">
+   <section><h3>Conhecimentos</h3><ul><li>Windows e Microsoft Office</li><li>Hardware e manutenção</li><li>TCP/IP, DNS e DHCP</li><li>Suporte remoto e AnyDesk</li><li>Noções de Microsoft 365, Active Directory, Entra ID, ITSM/ITIL e segurança da informação</li></ul></section>
+   <section><h3>Idiomas</h3><p>Português: nativo<br>Inglês: intermediário, com leitura de textos técnicos</p></section>
+   <section><h3>Competências</h3><p>Comunicação, organização, resolução de problemas, responsabilidade e aprendizado contínuo.</p></section>
+  </aside></div>
+ </article>
+</dialog>
 </body>
 </html>

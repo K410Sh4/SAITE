@@ -77,12 +77,13 @@ As melhorias reduzem trabalho desnecessário, mas FPS, consumo de energia e mem�
 - Uma rotação da roda não captura a rolagem indefinidamente: apenas o evento que alterna o card é consumido, com intervalo mínimo entre mudanças.
 - Toques curtos continuam selecionando um card diretamente, e arrastes não disparam cliques acidentais.
 
-## Página Sobre mim: apresentação de TI e serviços web
+## Página Sobre mim — modo imersivo, responsivo e currículo de TI
 
-- URL: `./sobre.html`. O menu `Sobre mim` da página inicial continua apontando para ela.
-- Página de apresentação profissional completa com hero, trajetória, competências, argumentos sobre criação de sites, método, contato e **um único currículo** de Suporte Técnico & Infraestrutura.
-- O currículo é baseado na formação e na experiência autônoma declaradas pelo usuário. Experiências profissionais excluídas pelo usuário não aparecem no texto.
-- O documento original pessoal não é copiado para o repositório. A página mostra o e-mail profissional, mas não divulga telefone.
-- **Salvar currículo em PDF** abre o diálogo de impressão. A folha de estilos de impressão oculta toda a página comercial e imprime apenas o currículo.
-- GSAP 3.15 e ScrollTrigger são usados de maneira progressiva: entrada inicial e revelação pontual dos blocos, sem animações contínuas ou scrub. A página permanece legível sem CDN e respeita `prefers-reduced-motion`.
-- A composição de interface no hero é um **conceito visual ilustrativo**, não uma captura de um cliente nem uma foto do usuário.
+- **Rota:** `./sobre.html` (o link do cabeçalho principal foi mantido).
+- Inspirado no conceito de uma tela compacta com hero editorial, **Visão cliente / Visão técnica** interativa, montagem de site em quatro etapas, projetos contados como histórias e currículo de TI.
+- Em desktops de pelo menos 1281px de largura e 690px de altura, o layout usa a altura disponível da viewport, sem forçar rolagem para acessar os painéis principais. Em janelas pequenas, permite rolagem para não esconder informação.
+- No celular, os painéis se reorganizam em uma coluna; cards, botões e etapas recebem áreas confortáveis de toque.
+- A foto de uma pessoa exibida na imagem conceitual **não** é usada como fotografia do autor: a capa emprega arte de interface construída em CSS. As imagens dos cases vêm dos repositórios de origem.
+- A visão escolhida altera título/explicação e destaca o painel correspondente. As histórias mostram objetivos, decisões e entrega verificável, sem inventar métricas comerciais.
+- Currículo completo disponível em modal acessível, com impressão A4. **Somente a versão de Suporte Técnico e Infraestrutura** aparece. Não foram incluídas outras experiências excluídas pelo usuário.
+- GSAP para entradas pontuais, sem filtros pesados, efeitos infinitos ou animações forçadas de rolagem. Funciona também sem carregar a biblioteca e respeita `prefers-reduced-motion`.
