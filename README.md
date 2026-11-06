@@ -111,3 +111,13 @@ As melhorias reduzem trabalho desnecessário, mas FPS, consumo de energia e mem�
 - Rota `orcamento-recebido.html` explica que a solicitação foi encaminhada para processamento, sem prometer entrega direta ao inbox.
 - O serviço é terceirizado: não existe armazenamento de solicitações no GitHub Pages; informar aos clientes que os dados serão encaminhados ao FormSubmit. Não solicitar dados sensíveis.
 - Não foram implementados e-mails falsos de teste e nenhuma mensagem foi enviada durante a implantação.
+
+## Página de orçamento — Proposta 02 (layout comercial)
+
+- `orcamento.html` apresenta um hero com ilustração de interface leve em CSS, três planos selecionáveis lado a lado no desktop e formulário em destaque abaixo; no celular, os cards e campos ficam em uma coluna.
+- Identidade alinhada às demais páginas SAITE: carvão `#0a0c12`, painéis `#10131c`, verde menta `#b6e7d0`, tipografia Space Grotesk + DM Sans.
+- Planos **Essencial** (a partir de R$ 100), **Comercial** (R$ 250) e **Inteligente** (R$ 500): preços referenciais, sujeitos ao escopo, sem prometer painel, bot ou API sem contratação separada.
+- Clicar no card atualiza o `select` obrigatório no formulário; selecionar no formulário também atualiza o card. Nenhum plano é escolhido automaticamente, exceto via parâmetro `?plano=...`.
+- Campos obrigatórios: e-mail, tipo de site e serviços/produtos da empresa. Observações permanecem opcionais; validação nativa de e-mail, minlength e obrigatoriedade.
+- Formulário mantém POST tradicional HTTPS ao FormSubmit para `elgator833@gmail.com`, honeypot e configuração de retorno. Não existe envio AJAX nem confirmação falsa: a ativação do destinatário e um teste real de entrega são necessários.
+- A página `orcamento-recebido.html` usa a mesma folha `orcamento.css` e foi preservada.
