@@ -86,17 +86,24 @@ function updatePreview(index) {
   previewDescription.textContent = project.description;
   const previewUrl = safeUrl(project.previewUrl);
   const liveUrl = safeUrl(project.siteUrl);
-  if (previewUrl) {
-    const iframe = document.createElement('iframe');
-    iframe.title = `Site demonstrativo ${project.title}`;
-    iframe.loading = 'lazy';
-    iframe.referrerPolicy = 'no-referrer';
-    iframe.src = previewUrl;
-    previewContent.replaceChildren(iframe);
-    previewAddress.textContent = new URL(previewUrl).hostname;
-    previewLabel.textContent = 'VISUALIZAÇÃO DO SITE';
+
+  if (previewUrl && previewVisible) {
+    // Somente um site externo ativo, e apenas quando a seção é visível.
+    // Não recarrega o iframe se o usuário já estiver olhando o mesmo projeto.
+    let iframe = previewContent.querySelector('iframe');
+    if (!iframe || iframe.getAttribute('src') !== previewUrl) {
+      iframe = document.createElement('iframe');
+      iframe.title = `Visualização do site ${project.title}`;
+      iframe.loading = 'lazy';
+      iframe.referrerPolicy = 'no-referrer';
+      iframe.setAttribute('src', previewUrl);
+      previewContent.replaceChildren(iframe);
+    }
+    const address = new URL(previewUrl);
+    previewAddress.textContent = address.hostname + address.pathname;
+    previewLabel.textContent = 'SITE PUBLICADO · PRÉVIA INTERATIVA';
   } else {
-    // Reutiliza os mesmos nós DOM; evita reconstruir a vitrine em cada troca.
+    // Capa estática e leve: não executa os scripts do site fora da tela.
     let mockup = previewNodeCache.get(project.id);
     if (!mockup) {
       const shell = document.createElement('div');
@@ -104,9 +111,14 @@ function updatePreview(index) {
       mockup = shell.firstElementChild;
       if (mockup) previewNodeCache.set(project.id, mockup);
     }
-    previewContent.replaceChildren(...(mockup ? [mockup] : []));
-    previewAddress.textContent = `saite / conceito / ${project.id}`;
-    previewLabel.textContent = 'CONCEITO VISUAL · DEMONSTRAÇÃO';
+    if (mockup && previewContent.firstElementChild !== mockup) previewContent.replaceChildren(mockup);
+    if (!mockup) previewContent.replaceChildren();
+    previewAddress.textContent = previewUrl
+      ? new URL(previewUrl).hostname + new URL(previewUrl).pathname
+      : `saite / conceito / ${project.id}`;
+    previewLabel.textContent = previewUrl
+      ? 'SITE PUBLICADO · CAPA DO PROJETO'
+      : 'CONCEITO VISUAL · DEMONSTRAÇÃO';
   }
   visitLink.hidden = !liveUrl;
   if (liveUrl) visitLink.href = liveUrl;
@@ -238,8 +250,15 @@ if ('IntersectionObserver' in window) {
           carousel.classList.remove('is-moving');
         } else startAuto();
       } else if (entry.target === previewSection) {
+        const wasVisible = previewVisible;
         previewVisible = entry.isIntersecting;
-        if (!previewVisible && transitionPhase !== 'idle') completeTransitionImmediately();
+        if (!previewVisible && transitionPhase !== 'idle') {
+          completeTransitionImmediately();
+        } else if (wasVisible !== previewVisible && transitionPhase === 'idle') {
+          // Ao entrar na seção, substitui a capa pelo site ao vivo.
+          // Ao sair, descarrega o iframe para economizar CPU e memória.
+          updatePreview(current);
+        }
       }
     }
   }, { threshold: 0.05 });

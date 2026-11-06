@@ -7,7 +7,7 @@ Página inicial estática, responsiva e sem build: `index.html`, `styles.css`, `
 - Header compacto (5–10% de altura) com marca à esquerda, **Sobre** e conta Google à direita.
 - Carrossel 3D em **perspectiva de profundidade**: card próximo e grande à esquerda, intermediário ao centro, distante e pequeno à direita. O movimento automático aproxima os cards da direita para a esquerda, preservando navegação, pausa no hover/foco, setas do teclado e `prefers-reduced-motion`.
 - Área de preview ampla abaixo do carrossel. A troca de projeto aplica blur diretamente a todos os blocos da prévia (título, descrição, moldura, conteúdo e rodapé), com substituição sincronizada no pico do desfoque.
-- Três conceitos visuais construídos em HTML/CSS, sem imagens externas: loja editorial, loja aquática e painel de administração.
+- Projetos reais **Margot Acessórios** e **Espaço Piscina** nas duas primeiras posições, com capas leves usando imagens dos próprios sites; terceiro card preservado como conceito Control Center.
 - Login Google com Firebase Authentication, visualização do perfil e logout **assim que configurado**.
 
 ## Publicar no GitHub Pages
@@ -60,3 +60,12 @@ Para mudar a marca de texto, edite `.brand` em `index.html`. O favicon está em 
 - A área grande de preview utiliza `content-visibility: auto`, permitindo ao navegador evitar renderização fora da tela.
 
 As melhorias reduzem trabalho desnecessário, mas FPS, consumo de energia e memória reais devem ser medidos no dispositivo para confirmação quantitativa.
+
+## Sites reais incorporados no preview
+
+- Margot: https://k410sh4.github.io/Margot/
+- Espaço Piscina: https://k410sh4.github.io/EspacoPiscinas/
+- Os cards usam imagens leves e estáticas, sem abrir as páginas completas dentro do carrossel.
+- Quando a seção de preview aparece na tela, carrega somente o iframe do projeto selecionado; ao sair da seção, volta à capa estática para reduzir trabalho de CPU/GPU, especialmente no celular.
+- O botão **Visitar projeto** permite abrir a página completa caso o navegador ou o site bloqueie a incorporação em iframe.
+- Uma prévia incorporada pode executar recursos do próprio site (ex.: GSAP). A carga é feita sob demanda, não ao navegar no carrossel.

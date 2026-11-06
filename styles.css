@@ -274,6 +274,42 @@ h1 { font-size: clamp(34px, 4.1vw, 66px); line-height: 1.06; letter-spacing: -.0
 .lab-log-row {display:flex;align-items:center;gap:.65em;border-bottom:1px solid #2e3947;padding:7% 0;color:#8b9dac;font-size:.72em;}
 .lab-log-row b {height:.55em;width:.55em;flex-shrink:0;border-radius:50%;background:#7bd4af;}
 
+/* Capas reais dos projetos: imagens oficiais leves, sem carregar sites nos cards. */
+.real-mock { display:flex; flex-direction:column; overflow:hidden; }
+.real-mock--margot { background:#f8efec; color:#44302f; }
+.real-mock--piscina { background:#eaf8fb; color:#103f5d; }
+.real-mock-nav { flex:0 0 12%; min-height:30px; padding:0 5%; display:flex; justify-content:space-between; align-items:center; gap:1em; }
+.real-mock--margot .real-mock-nav { background:#fff9f7; border-bottom:1px solid #d7b8ac45; }
+.real-mock--piscina .real-mock-nav { background:#fff; border-bottom:1px solid #0e668827; }
+.real-mock-brand { display:flex; align-items:center; gap:.65em; min-width:0; font-weight:800; letter-spacing:.12em; font-size:.88em; white-space:nowrap; }
+.real-mock-brand img { display:block; width:3.6em; height:3.8em; object-fit:contain; flex-shrink:0; }
+.real-mock--piscina .real-mock-brand img { width:7em; }
+.real-mock-nav-links { font-size:.68em; font-weight:700; letter-spacing:.12em; white-space:nowrap; opacity:.7; }
+.real-mock-stage { flex:1 1 auto; min-height:0; display:grid; grid-template-columns: 47% 53%; }
+.real-mock-copy { display:flex; flex-direction:column; align-items:flex-start; justify-content:center; padding:5% 4% 5% 10%; }
+.real-mock-kicker { font-size:.69em; letter-spacing:.17em; font-weight:800; margin-bottom:1.2em; }
+.real-mock-copy h3 { font-size:clamp(22px,4.1em,66px); font-weight:600; line-height:1.04; letter-spacing:-.055em; max-width:11ch; }
+.real-mock--margot .real-mock-copy h3 { font-family:Georgia,serif; font-weight:400; color:#684343; }
+.real-mock--piscina .real-mock-copy h3 { font-weight:750; color:#0c5471; }
+.real-mock-copy p { font-size:.88em; line-height:1.45; margin:1.1em 0 !important; max-width:23em; opacity:.78; }
+.real-mock-pill { display:inline-flex; align-items:center; border-radius:99px; padding:.8em 1.4em; font-size:.73em; font-weight:800; white-space:nowrap; }
+.real-mock--margot .real-mock-pill { background:#673f41; color:#fff; }
+.real-mock--piscina .real-mock-pill { background:#116b91; color:#fff; }
+.real-mock-media { position:relative; min-width:0; min-height:0; overflow:hidden; }
+.real-mock-media img { display:block; height:100%; width:100%; object-fit:cover; object-position:center; }
+.real-mock--piscina .real-mock-media img { object-position:50% 48%; }
+.real-mock-footer { flex:0 0 11%; min-height:27px; display:flex; justify-content:space-around; align-items:center; padding:0 4%; gap:1em; font-size:.75em; font-weight:700; letter-spacing:.12em; }
+.real-mock--margot .real-mock-footer { background:#efe1da; color:#865b5a; }
+.real-mock--piscina .real-mock-footer { background:#d6eef4; color:#176782; }
+@media (max-width:600px) {
+  .real-mock-nav-links { display:none; }
+  .real-mock-brand { font-size:1em; }
+  .real-mock-copy { padding-left:7%; }
+  .real-mock-copy h3 { font-size:clamp(20px,3.7em,42px); }
+  .real-mock-copy p { font-size:.75em; }
+  .real-mock-footer { letter-spacing:.06em; font-size:.78em; }
+}
+
 @media (min-width: 1550px) {
   .project-surface .mock-site { font-size: 11px; }
 }

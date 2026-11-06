@@ -1,26 +1,24 @@
 /**
- * Projetos de demonstração. Quando um site estiver pronto:
- * - altere title, category, description;
- * - informe uma URL HTTPS em previewUrl para exibi-lo na janela (se permitir iframe);
- * - informe a URL pública em siteUrl para habilitar “Visitar projeto”.
- * Se o site bloquear iframe, prefira uma captura ou um mockup local.
+ * Catálogo do portfólio: dois projetos reais e um conceito demonstrativo.
+ * Imagens de capa pertencem aos próprios repositórios públicos do usuário.
+ * Os sites completos só são carregados no preview quando ele está visível.
  */
 export const projects = [
   {
-    id: 'atelier',
-    title: 'Atelier Concept',
-    category: 'E-COMMERCE / CONCEITO',
-    description: 'Uma vitrine editorial de produtos com apresentação sofisticada.',
-    previewUrl: null,
-    siteUrl: null,
+    id: 'margot',
+    title: 'Margot Acessórios',
+    category: 'E-COMMERCE / ACESSÓRIOS',
+    description: 'Loja digital de acessórios femininos com catálogo, identidade delicada e experiência de compra.',
+    previewUrl: 'https://k410sh4.github.io/Margot/',
+    siteUrl: 'https://k410sh4.github.io/Margot/',
   },
   {
-    id: 'aqua',
-    title: 'Blue Summer',
-    category: 'LOJA DIGITAL / CONCEITO',
-    description: 'Uma experiência comercial luminosa, com foco em produtos e navegação.',
-    previewUrl: null,
-    siteUrl: null,
+    id: 'espaco-piscinas',
+    title: 'Espaço Piscina',
+    category: 'SITE COMERCIAL / PISCINAS',
+    description: 'Site comercial da Espaço Piscina, em Alfenas (MG), com produtos, atendimento e orientações para clientes.',
+    previewUrl: 'https://k410sh4.github.io/EspacoPiscinas/',
+    siteUrl: 'https://k410sh4.github.io/EspacoPiscinas/',
   },
   {
     id: 'lab',
@@ -32,33 +30,40 @@ export const projects = [
   },
 ];
 
-const atelier = `
-  <div class="mock-site mock-site--atelier">
-    <div class="mock-nav"><div class="mock-logo"><span class="atelier-nav-symbol">✧</span> MAISON ATELIER</div><div class="mock-links"><span>COLEÇÃO</span><span>ESSÊNCIA</span><span>MENU ☰</span></div></div>
-    <div class="atelier-hero">
-      <div class="atelier-copy">
-        <p class="atelier-kicker">EDIÇÃO ESSENCIAL / 2026</p>
-        <h3>Peças para <em>sentir</em> e lembrar.</h3>
-        <p class="atelier-desc">Design delicado, detalhes atemporais. Descubra o extraordinário no cotidiano.</p>
-        <span class="mock-pill atelier-cta">Explorar coleção ↗</span>
-      </div>
-      <div class="atelier-scene"><div class="atelier-art"></div><span class="atelier-float">OBJETOS DE DESEJO — Nº 01</span></div>
+const margot = `
+  <div class="mock-site real-mock real-mock--margot">
+    <div class="real-mock-nav">
+      <div class="real-mock-brand"><img src="https://k410sh4.github.io/Margot/assets/margot-logo.webp" alt="" loading="lazy" decoding="async" /><span>MARGOT</span></div>
+      <span class="real-mock-nav-links">COLEÇÃO &nbsp; PRESENTES &nbsp; SOBRE</span>
     </div>
-    <div class="atelier-collections"><div class="atelier-collection">Essenciais ↗</div><div class="atelier-collection">Assinaturas ↗</div><div class="atelier-collection">Presenteáveis ↗</div></div>
+    <div class="real-mock-stage">
+      <div class="real-mock-copy">
+        <span class="real-mock-kicker">ESSENCIAIS COM AFETO</span>
+        <h3>Delicadeza em cada detalhe.</h3>
+        <p>Acessórios para acompanhar cada momento.</p>
+        <span class="real-mock-pill">Explorar coleção ↗</span>
+      </div>
+      <div class="real-mock-media"><img src="https://k410sh4.github.io/Margot/assets/hero-1.webp" alt="Imagem do catálogo visual da Margot" loading="lazy" decoding="async" /></div>
+    </div>
+    <div class="real-mock-footer"><span>BRINCOS</span><span>COLARES</span><span>PRESENTES</span></div>
   </div>`;
 
-const aqua = `
-  <div class="mock-site mock-site--aqua">
-    <div class="mock-nav"><div class="mock-logo"><span class="aqua-logo-mark">◈</span> ESPAÇO AZUL</div><div class="mock-links"><span>PISCINAS</span><span>PRODUTOS</span><span>CONTATO ↗</span></div></div>
-    <div class="aqua-hero">
-      <div class="aqua-water"></div><div class="aqua-pool"></div>
-      <div class="aqua-copy"><p class="eyeline">O MELHOR DO VERÃO</p><h3>Seu lugar ao sol começa aqui.</h3><p>Produtos e soluções pensados para tornar cada mergulho especial.</p><span class="mock-pill">Ver novidades ↗</span></div>
+const piscina = `
+  <div class="mock-site real-mock real-mock--piscina">
+    <div class="real-mock-nav">
+      <div class="real-mock-brand"><img src="https://k410sh4.github.io/EspacoPiscinas/assets/espaco-piscina-logo.svg" alt="" loading="lazy" decoding="async" /><span>ESPAÇO PISCINA</span></div>
+      <span class="real-mock-nav-links">PRODUTOS &nbsp; ATENDIMENTO</span>
     </div>
-    <div class="aqua-catalog">
-      <div class="aqua-product"><div class="aqua-bottle"></div><div><p>Cuidados</p><small>Produtos essenciais</small></div></div>
-      <div class="aqua-product"><div class="aqua-bottle"></div><div><p>Tratamento</p><small>Água cristalina</small></div></div>
-      <div class="aqua-product"><div class="aqua-bottle"></div><div><p>Acessórios</p><small>Para aproveitar</small></div></div>
+    <div class="real-mock-stage">
+      <div class="real-mock-copy">
+        <span class="real-mock-kicker">ALFENAS · MINAS GERAIS</span>
+        <h3>Sua piscina bem cuidada.</h3>
+        <p>Produtos e soluções para cada mergulho.</p>
+        <span class="real-mock-pill">Conhecer produtos ↗</span>
+      </div>
+      <div class="real-mock-media"><img src="https://k410sh4.github.io/EspacoPiscinas/assets/problemas/ph-alto.webp" alt="Imagem ilustrativa de piscina usada no site Espaço Piscina" loading="lazy" decoding="async" /></div>
     </div>
+    <div class="real-mock-footer"><span>TRATAMENTO</span><span>PISCINAS</span><span>SUPORTE</span></div>
   </div>`;
 
 const lab = `
@@ -70,5 +75,6 @@ const lab = `
     </div>
   </div>`;
 
-const mockups = { atelier, aqua, lab };
+
+const mockups = { margot, 'espaco-piscinas': piscina, lab };
 export function renderMockup(id) { return mockups[id] || ''; }
