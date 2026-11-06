@@ -16,6 +16,8 @@ const toast = document.querySelector('#toast');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 let current = 0;
 let switchTimer = null;
+let revealTimer = null;
+let transitionPhase = 'idle';
 let autoTimer = null;
 let toastTimer = null;
 
@@ -97,22 +99,63 @@ function updatePreview(index) {
   else visitLink.removeAttribute('href');
 }
 
+function clearTransitionTimers() {
+  clearTimeout(switchTimer);
+  clearTimeout(revealTimer);
+  switchTimer = null;
+  revealTimer = null;
+}
+
+function completeTransitionImmediately() {
+  clearTransitionTimers();
+  transitionPhase = 'idle';
+  transition.classList.remove('is-active');
+  updatePreview(current);
+}
+
+function finishBlurIn() {
+  if (transitionPhase !== 'covering') return;
+  clearTimeout(switchTimer);
+  switchTimer = null;
+  // Substituir a prévia apenas quando o overlay cobrir toda a janela.
+  updatePreview(current);
+  transitionPhase = 'revealing';
+  requestAnimationFrame(() => {
+    if (transitionPhase === 'revealing') transition.classList.remove('is-active');
+  });
+  // Reserva caso o navegador não emita transitionend (ex.: aba suspensa).
+  revealTimer = setTimeout(() => {
+    if (transitionPhase === 'revealing') transitionPhase = 'idle';
+  }, 550);
+}
+
 function selectProject(next, { animate = true } = {}) {
   const index = (next + projects.length) % projects.length;
   if (index === current && animate) return;
-  clearTimeout(switchTimer);
   current = index;
   updateCardPositions();
   if (!animate || reducedMotion.matches) {
-    transition.classList.remove('is-active');
-    updatePreview(index);
+    completeTransitionImmediately();
     return;
   }
-  transition.classList.remove('is-active');
-  void transition.offsetWidth; // Reinicia a animação para cliques repetidos.
+  // Cliques rápidos atualizam o destino sem reiniciar o desfoque já em curso.
+  if (transitionPhase === 'covering') return;
+  clearTransitionTimers();
+  transitionPhase = 'covering';
   transition.classList.add('is-active');
-  switchTimer = setTimeout(() => updatePreview(index), 275);
+  // O CSS controla o tempo exato; este timer cobre browsers sem transitionend.
+  switchTimer = setTimeout(finishBlurIn, 550);
 }
+
+transition.addEventListener('transitionend', (event) => {
+  if (event.target !== transition || event.propertyName !== 'opacity') return;
+  if (transitionPhase === 'covering') finishBlurIn();
+  else if (transitionPhase === 'revealing') {
+    clearTimeout(revealTimer);
+    revealTimer = null;
+    transitionPhase = 'idle';
+  }
+});
 
 function stopAuto() {
   clearInterval(autoTimer);
@@ -139,9 +182,16 @@ carousel.addEventListener('keydown', (event) => {
     selectProject(current + (event.key === 'ArrowRight' ? 1 : -1));
   }
 });
-document.addEventListener('visibilitychange', () => { if (document.hidden) stopAuto(); else startAuto(); });
-reducedMotion.addEventListener('change', startAuto);
-transition.addEventListener('animationend', () => transition.classList.remove('is-active'));
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    stopAuto();
+    if (transitionPhase !== 'idle') completeTransitionImmediately();
+  } else startAuto();
+});
+reducedMotion.addEventListener('change', () => {
+  if (reducedMotion.matches && transitionPhase !== 'idle') completeTransitionImmediately();
+  startAuto();
+});
 startAuto();
 
 const aboutDialog = document.querySelector('#aboutDialog');
