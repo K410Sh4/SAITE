@@ -100,3 +100,14 @@ As melhorias reduzem trabalho desnecessário, mas FPS, consumo de energia e mem�
 - A página Sobre mim exibe **Kaio Fellipe** no título e mantém somente **Início / Sobre mim** na navegação superior. O nome completo permanece no currículo formal.
 - O projeto demonstrativo Control Center foi removido do catálogo e de seu mockup; há somente os dois projetos reais no carrossel.
 - A contagem e a perspectiva foram adaptadas para dois cards, mantendo arraste, roda do mouse, setas, autoplay e prévias reais.
+
+## Solicitação de orçamento por e-mail
+
+- Botão **Quero fazer um orçamento** ao lado de `Sobre mim` na página inicial e na navegação de `sobre.html`.
+- Nova rota `/orcamento.html`, com três informações obrigatórias: e-mail de contato, escolha de um dos **três tipos de site** (Básico, Profissional, Avançado) e descrição dos serviços/produtos da empresa.
+- Campo de observações e perguntas **opcional**. Validação de HTML5 antes do POST.
+- O formulário faz POST por HTTPS para `https://formsubmit.co/elgator833@gmail.com` e usa reCAPTCHA do serviço, honeypot, assunto identificando SAITE e resposta ao e-mail informado.
+- **ATIVAÇÃO NECESSÁRIA:** o FormSubmit envia uma mensagem de confirmação ao endereço destinatário no primeiro envio. O proprietário deve clicar no link de ativação. Não afirmar que os e-mails estão chegando antes de confirmar e testar.
+- Rota `orcamento-recebido.html` explica que a solicitação foi encaminhada para processamento, sem prometer entrega direta ao inbox.
+- O serviço é terceirizado: não existe armazenamento de solicitações no GitHub Pages; informar aos clientes que os dados serão encaminhados ao FormSubmit. Não solicitar dados sensíveis.
+- Não foram implementados e-mails falsos de teste e nenhuma mensagem foi enviada durante a implantação.

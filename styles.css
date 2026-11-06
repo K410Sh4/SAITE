@@ -373,3 +373,25 @@ h1 { font-size: clamp(34px, 4.1vw, 66px); line-height: 1.06; letter-spacing: -.0
 @media (prefers-reduced-motion: reduce) {
   *,*::before,*::after {scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;}
 }
+
+/* Acesso à página de orçamento ao lado do link Sobre mim. */
+.header-quote{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:40px;padding:10px 16px;border-radius:999px;
+  background:#b6e7d0;color:#15231c;font-size:12px;font-weight:800;
+  white-space:nowrap;transition:background .2s,transform .2s;
+}
+.header-quote:hover{background:#e3f7eb;transform:translateY(-1px)}
+.header-quote:focus-visible{outline:2px solid #e4faee;outline-offset:3px}
+@media(max-width:600px){
+  /* Cabeçalho em duas linhas: nenhum atalho fica oculto no celular. */
+  .site-header{height:auto;min-height:102px;padding:9px 17px 10px;flex-wrap:wrap;row-gap:8px}
+  .site-header .brand{width:100%;height:35px}
+  .header-actions{height:auto;width:100%;display:flex;justify-content:space-between;gap:7px}
+  .header-link{font-size:11px;padding:8px 0;white-space:nowrap}
+  .header-divider{display:none}
+  .header-quote{min-height:37px;padding:9px 10px;font-size:10px;gap:5px;letter-spacing:-.018em}
+  .header-quote span{display:none}
+  .login-button{min-width:37px}
+  .account-area{flex-shrink:0}
+}

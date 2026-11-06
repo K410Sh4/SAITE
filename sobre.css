@@ -371,3 +371,20 @@ body[data-view=cliente] .lens-card[data-lens=cliente],body[data-view=tecnica] .l
  .resume-paper h3{font-size:9.2pt!important}
  .resume-paper p,.resume-paper li{font-size:9.2pt!important;line-height:1.45!important}
 }
+
+/* Botão de orçamento na navegação Sobre mim, responsivo sem esconder o acesso. */
+.nav .quote-nav-link{
+  height:auto;background:#b6e7d0;color:#15231c;display:inline-flex;
+  align-items:center;gap:10px;padding:11px 16px;border-radius:999px;
+  font-size:11px;font-weight:800;white-space:nowrap;
+}
+.nav .quote-nav-link:hover{background:#e3f7eb;color:#10251a}
+@media screen and (max-width:720px){
+  .topbar{height:auto;min-height:104px;flex-wrap:wrap;padding:10px 14px;row-gap:9px}
+  .topbar .brand{height:34px}
+  .topbar .nav{display:flex;order:2;flex:1 0 100%;height:auto;align-items:center;justify-content:space-between;gap:10px}
+  .topbar .nav a{height:auto;font-size:11px}
+  .nav .quote-nav-link{padding:10px;font-size:10px;gap:5px}
+  .nav .quote-nav-link span{display:none}
+  .nav a.current::after{bottom:-5px}
+}

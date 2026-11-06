@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0c12">
+  <meta name="description" content="Solicite um orçamento de site no SAITE. Escolha o tipo de projeto e conte quais serviços sua empresa oferece.">
+  <title>Quero fazer um orçamento | SAITE</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./orcamento.css">
+</head>
+<body>
+  <a class="skip-link" href="#form-orcamento">Ir para o formulário</a>
+  <header class="site-header">
+    <a class="brand" href="./index.html" aria-label="SAITE — página inicial">
+      <span class="brand-symbol" aria-hidden="true">S<span>.</span></span>
+      <span class="brand-name">SAITE</span>
+      <span class="brand-tag">DIGITAL SPACE</span>
+    </a>
+    <nav aria-label="Navegação principal">
+      <a href="./index.html">Início</a>
+      <a href="./sobre.html">Sobre mim</a>
+      <a class="is-active" href="./orcamento.html" aria-current="page">Orçamento</a>
+    </nav>
+  </header>
+  <main class="main">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> VAMOS PLANEJAR SEU SITE</p>
+      <h1 id="page-title">Sua ideia merece um site <em>bem pensado.</em></h1>
+      <p>Conte um pouco sobre sua empresa e o tipo de site que procura. Com essas informações, poderei entender melhor o projeto antes de preparar uma proposta personalizada.</p>
+      <div class="intro-footer"><span class="tiny-dot" aria-hidden="true"></span> Solicitação sem compromisso <span aria-hidden="true">·</span> Alfenas, MG</div>
+      <div class="intro-art" aria-hidden="true">
+        <div class="art-browser"><div class="art-bar"><span></span><span></span><span></span><b>saite / projeto</b></div><div class="art-head"></div><div class="art-lead"></div><div class="art-lead short"></div><div class="art-button"></div><div class="art-preview"></div></div>
+        <div class="art-code">◈ <span>identidade + experiência + tecnologia</span></div>
+      </div>
+      <div class="steps" aria-label="Etapas do pedido"><span><b>01</b> Escolher</span><span class="step-separator">→</span><span><b>02</b> Descrever</span><span class="step-separator">→</span><span><b>03</b> Enviar</span></div>
+    </section>
+    <section class="form-panel" aria-labelledby="form-title">
+      <div class="form-heading">
+        <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> PEDIDO DE ORÇAMENTO</p>
+        <h2 id="form-title">Me fale sobre seu projeto<span>.</span></h2>
+        <p>Os campos marcados com <strong>*</strong> são obrigatórios.</p>
+      </div>
+      <form id="form-orcamento" class="form" method="POST" action="https://formsubmit.co/elgator833@gmail.com" accept-charset="UTF-8">
+        <input type="hidden" name="_subject" value="[SAITE] Nova solicitação de orçamento">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://k410sh4.github.io/SAITE/orcamento-recebido.html">
+        <input type="hidden" name="_url" value="https://k410sh4.github.io/SAITE/orcamento.html">
+        <div class="honeypot" aria-hidden="true">
+          <label for="form-honey">Não preencha este campo</label>
+          <input id="form-honey" type="text" name="_honey" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="form-section">
+          <div class="section-number">01 <span>/ SEU CONTATO</span></div>
+          <label for="email" class="field-label">Seu e-mail <span class="required">*</span></label>
+          <p class="field-hint" id="email-hint">Este será o endereço utilizado para responder ao seu pedido.</p>
+          <input class="text-input" id="email" name="email" type="email" maxlength="254" autocomplete="email" inputmode="email" placeholder="voce@empresa.com.br" aria-describedby="email-hint" required>
+        </div>
+
+        <fieldset class="form-section site-options">
+          <legend class="section-number">02 <span>/ TIPO DE SITE</span></legend>
+          <p class="field-label">Qual tipo de site você procura? <span class="required">*</span></p>
+          <p class="field-hint">Selecione uma das três opções. O escopo final será definido após conversarmos.</p>
+          <div class="options-grid">
+            <label class="site-choice">
+              <input type="radio" name="Tipo de site" value="Básico" required>
+              <span class="choice-content"><span class="choice-head"><span class="choice-index">01 / ESSENCIAL</span><span class="choice-marker" aria-hidden="true"></span></span><strong>Site Básico</strong><small>Uma presença online objetiva, com informações essenciais e contato.</small><span class="choice-tags">Apresentação <span>·</span> Contato</span></span>
+            </label>
+            <label class="site-choice">
+              <input type="radio" name="Tipo de site" value="Profissional" required>
+              <span class="choice-content"><span class="choice-head"><span class="choice-index">02 / COMERCIAL</span><span class="choice-marker" aria-hidden="true"></span></span><strong>Site Profissional</strong><small>Mais seções para apresentar sua empresa, serviços e produtos.</small><span class="choice-tags">Institucional <span>·</span> Catálogo</span></span>
+            </label>
+            <label class="site-choice">
+              <input type="radio" name="Tipo de site" value="Avançado" required>
+              <span class="choice-content"><span class="choice-head"><span class="choice-index">03 / SOB MEDIDA</span><span class="choice-marker" aria-hidden="true"></span></span><strong>Site Avançado</strong><small>Projeto personalizado, com recursos e interações a definir.</small><span class="choice-tags">Personalização <span>·</span> Recursos</span></span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="form-section">
+          <div class="section-number">03 <span>/ SUA EMPRESA</span></div>
+          <label for="servicos" class="field-label">Quais serviços ou produtos a sua empresa oferece? <span class="required">*</span></label>
+          <p class="field-hint" id="servicos-hint">Descreva o ramo de atuação e o que você deseja apresentar aos clientes no site.</p>
+          <textarea class="text-input text-area" id="servicos" name="Serviços oferecidos pela empresa" rows="4" minlength="12" maxlength="2200" placeholder="Ex.: Temos uma loja de roupas femininas. Vendemos peças e acessórios, atendemos clientes pelo WhatsApp e queremos apresentar nosso catálogo online..." aria-describedby="servicos-hint" required></textarea>
+        </div>
+
+        <div class="form-section form-last">
+          <div class="section-number">04 <span>/ DETALHES ADICIONAIS</span> <span class="optional-tag">OPCIONAL</span></div>
+          <label for="observacoes" class="field-label">Observações — quer perguntar ou falar algo mais?</label>
+          <p class="field-hint" id="observacoes-hint">Conte sobre referências, prazos, ideias ou alguma dúvida que queira esclarecer.</p>
+          <textarea class="text-input text-area" id="observacoes" name="Observações e perguntas" rows="4" maxlength="2200" placeholder="Se quiser, acrescente detalhes do seu projeto..." aria-describedby="observacoes-hint"></textarea>
+        </div>
+
+        <div class="submit-area">
+          <p class="privacy-note">Ao enviar, seus dados serão processados pelo <a href="https://formsubmit.co/" target="_blank" rel="noopener noreferrer">FormSubmit</a> para encaminhar sua solicitação ao meu e-mail. Não envie informações sensíveis. O envio pode exigir uma verificação antispam.</p>
+          <button class="submit-button" type="submit">Enviar pedido de orçamento <span aria-hidden="true">↗</span></button>
+          <p class="submit-footnote">Este formulário não gera um preço automático nem confirma uma contratação.</p>
+        </div>
+      </form>
+    </section>
+  </main>
+  <footer class="footer"><span>SAITE © 2026</span><a href="./sobre.html">Sobre mim</a><a href="./index.html">Voltar ao portfólio ↗</a></footer>
+</body>
+</html>
