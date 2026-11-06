@@ -50,3 +50,13 @@ Edite o array `projects` em `projects.js`. Cada projeto tem:
 Se uma página proibir exibição em `iframe` com `X-Frame-Options` ou `Content-Security-Policy`, ela **não aparecerá dentro do preview**. Nesse caso, personalize `renderMockup` em `projects.js` ou use uma imagem capturada do site. Não é possível contornar esse bloqueio no GitHub Pages.
 
 Para mudar a marca de texto, edite `.brand` em `index.html`. O favicon está em `favicon.svg`.
+
+## Desempenho e adaptação visual
+
+- O carrossel para de avançar quando fica fora da tela e quando a aba não está ativa.
+- O blur da prévia só é processado quando a seção está visível. No celular mantém o efeito com 6px e duração de 320ms; no desktop preserva o blur original.
+- Conteúdo das prévias HTML é reutilizado entre trocas, sem reconstruir todo o DOM.
+- Removidos filtros contínuos de cor e sombras animadas nos cards; `will-change` é ativado apenas durante o movimento.
+- A área grande de preview utiliza `content-visibility: auto`, permitindo ao navegador evitar renderização fora da tela.
+
+As melhorias reduzem trabalho desnecessário, mas FPS, consumo de energia e memória reais devem ser medidos no dispositivo para confirmação quantitativa.
