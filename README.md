@@ -87,3 +87,10 @@ As melhorias reduzem trabalho desnecessário, mas FPS, consumo de energia e mem�
 - A visão escolhida altera título/explicação e destaca o painel correspondente. As histórias mostram objetivos, decisões e entrega verificável, sem inventar métricas comerciais.
 - Currículo completo disponível em modal acessível, com impressão A4. **Somente a versão de Suporte Técnico e Infraestrutura** aparece. Não foram incluídas outras experiências excluídas pelo usuário.
 - GSAP para entradas pontuais, sem filtros pesados, efeitos infinitos ou animações forçadas de rolagem. Funciona também sem carregar a biblioteca e respeita `prefers-reduced-motion`.
+
+## Auditoria visual: identidade e responsividade
+
+- Paleta da página Sobre mim harmonizada com a página inicial (carvão #0a0c12, painéis #10131c, acento verde suave #b6e7d0), incluindo o símbolo de marca.
+- Em monitores de altura insuficiente, a página rola em vez de cortar texto do hero ou ultrapassar o contêiner das visões. Tela única apenas em desktops com altura suficiente.
+- A imagem do Espaço Piscina usa o destaque do próprio site e tem fallback visual caso uma imagem remota falhe.
+- Estrutura do currículo de TI, estudos de caso e ações dos botões mantidas.

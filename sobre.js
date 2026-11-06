@@ -152,6 +152,16 @@
     window.print();
   });
 
+  // Fallback para imagens externas indisponíveis.
+  for (const image of document.querySelectorAll('.case-photo img')) {
+    const showFallback = () => {
+      image.hidden = true;
+      image.closest('.case-photo')?.classList.add('image-unavailable');
+    };
+    image.addEventListener('error', showFallback, { once: true });
+    if (image.complete && image.naturalWidth === 0) showFallback();
+  }
+
   if (reduced.matches || !gsap) return;
   // Entrada discreta: opacity/transform, uma vez, sem paralaxe nem blur.
   const items = document.querySelectorAll('.hero-inner > *, .lens-head, .lens-card');
