@@ -7,7 +7,7 @@ Página inicial estática, responsiva e sem build: `index.html`, `styles.css`, `
 - Header compacto (5–10% de altura) com marca à esquerda, **Sobre** e conta Google à direita.
 - Carrossel 3D em **perspectiva de profundidade**: card próximo e grande à esquerda, intermediário ao centro, distante e pequeno à direita. Navegação por arraste horizontal com dedo ou mouse, roda do mouse e trackpad, setas, teclado, autoplay e `prefers-reduced-motion`. A rolagem vertical da página continua disponível.
 - Área de preview ampla abaixo do carrossel. A troca de projeto aplica blur diretamente a todos os blocos da prévia (título, descrição, moldura, conteúdo e rodapé), com substituição sincronizada no pico do desfoque.
-- Projetos reais **Margot Acessórios** e **Espaço Piscina** nas duas primeiras posições, com capas leves usando imagens dos próprios sites; terceiro card preservado como conceito Control Center.
+- Projetos reais **Margot Acessórios** e **Espaço Piscina** em um carrossel de dois cards, com capas leves dos sites.
 - Login Google com Firebase Authentication, visualização do perfil e logout **assim que configurado**.
 
 ## Publicar no GitHub Pages
@@ -94,3 +94,9 @@ As melhorias reduzem trabalho desnecessário, mas FPS, consumo de energia e mem�
 - Em monitores de altura insuficiente, a página rola em vez de cortar texto do hero ou ultrapassar o contêiner das visões. Tela única apenas em desktops com altura suficiente.
 - A imagem do Espaço Piscina usa o destaque do próprio site e tem fallback visual caso uma imagem remota falhe.
 - Estrutura do currículo de TI, estudos de caso e ações dos botões mantidas.
+
+## Ajustes de apresentação
+
+- A página Sobre mim exibe **Kaio Fellipe** no título e mantém somente **Início / Sobre mim** na navegação superior. O nome completo permanece no currículo formal.
+- O projeto demonstrativo Control Center foi removido do catálogo e de seu mockup; há somente os dois projetos reais no carrossel.
+- A contagem e a perspectiva foram adaptadas para dois cards, mantendo arraste, roda do mouse, setas, autoplay e prévias reais.

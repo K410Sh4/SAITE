@@ -52,6 +52,7 @@ function safeUrl(value) {
 }
 
 function renderCards() {
+  carousel.dataset.projectCount = String(projects.length);
   track.innerHTML = projects.map((project, index) => `
     <button class="project-card" type="button" data-index="${index}" aria-label="Exibir projeto ${index + 1}: ${project.title}" aria-pressed="false">
       <div class="project-surface">${renderMockup(project.id)}</div>
@@ -71,11 +72,9 @@ function renderCards() {
 
 function updateCardPositions() {
   track.querySelectorAll('.project-card').forEach((button, index) => {
-    // A ordem é sempre: próximo à esquerda, intermediário, distante à direita.
-    // Ao avançar, a posição intermediária cresce e assume a dianteira;
-    // o terceiro card vem do fundo e o antigo primeiro retorna à distância.
+    // Com dois projetos, o selecionado ocupa a frente e o outro fica à direita.
     const distance = (index - current + projects.length) % projects.length;
-    const depth = ['near', 'middle', 'far'][distance];
+    const depth = ['near', 'middle', 'far'][Math.min(distance, 2)];
     const active = distance === 0;
     button.dataset.depth = depth;
     button.dataset.active = String(active);

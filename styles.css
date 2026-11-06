@@ -139,6 +139,15 @@ h1 { font-size: clamp(34px, 4.1vw, 66px); line-height: 1.06; letter-spacing: -.0
   --card-opacity: .72;
   --card-layer: 1;
 }
+/* Dois projetos: o segundo aparece menor e mais distante à direita. */
+.carousel[data-project-count="2"] .project-card[data-depth="middle"] {
+  --travel-x: clamp(150px, 30vw, 515px);
+  --travel-y: -19px;
+  --travel-z: -400px;
+  --turn: -14deg;
+  --card-scale: .78;
+  --card-opacity: .92;
+}
 .carousel.is-moving .project-card { will-change: transform, opacity; }
 .project-card:hover { border-color: rgba(240,255,246,.7); }
 .project-card[data-active="true"] { border-color: rgba(228,245,234,.45); box-shadow: 0 45px 110px rgba(0,0,0,.5),0 0 70px rgba(158,202,194,.095); }
@@ -339,6 +348,13 @@ h1 { font-size: clamp(34px, 4.1vw, 66px); line-height: 1.06; letter-spacing: -.0
   .project-card[data-depth="near"] { --travel-x: -10vw; --travel-y: 18px; }
   .project-card[data-depth="middle"] { --travel-y: -12px; }
   .project-card[data-depth="far"] { --travel-y: -34px; }
+  .carousel[data-project-count="2"] .project-card[data-depth="middle"] {
+    --travel-x: 41vw;
+    --travel-y: -15px;
+    --travel-z: -310px;
+    --turn: -15deg;
+    --card-scale: .76;
+  }
   .card-caption {bottom:16px;left:17px;right:15px}.card-title{font-size:20px}.card-type{font-size:8px;margin-bottom:5px}.card-cta{width:34px;height:34px;font-size:17px}
   .project-surface .mock-site {font-size:6px;}
   .carousel-bottom{width:91vw}.round-button{width:36px;height:36px}.carousel-count{font-size:12px}
