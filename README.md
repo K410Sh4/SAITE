@@ -77,11 +77,12 @@ As melhorias reduzem trabalho desnecessário, mas FPS, consumo de energia e mem�
 - Uma rotação da roda não captura a rolagem indefinidamente: apenas o evento que alterna o card é consumido, com intervalo mínimo entre mudanças.
 - Toques curtos continuam selecionando um card diretamente, e arrastes não disparam cliques acidentais.
 
-## Página Sobre mim e currículos públicos
+## Página Sobre mim: apresentação de TI e serviços web
 
-- URL: `./sobre.html` — acessada pelo botão **Sobre mim** do cabeçalho.
-- Três versões de currículo para consulta: TI/Suporte, Atendimento/Caixa e Geral.
-- Os textos foram revisados para a apresentação pública, com somente a experiência autônoma de suporte de informática listada nas seções de experiência profissional.
-- Os antigos currículos do arquivo pessoal não são copiados para este repositório; dados de telefone não são divulgados.
-- Use **Imprimir / salvar em PDF** na versão selecionada para obter o arquivo via diálogo de impressão do navegador.
-- Interface responsiva e imprimível em A4, com seleção acessível via teclado.
+- URL: `./sobre.html`. O menu `Sobre mim` da página inicial continua apontando para ela.
+- Página de apresentação profissional completa com hero, trajetória, competências, argumentos sobre criação de sites, método, contato e **um único currículo** de Suporte Técnico & Infraestrutura.
+- O currículo é baseado na formação e na experiência autônoma declaradas pelo usuário. Experiências profissionais excluídas pelo usuário não aparecem no texto.
+- O documento original pessoal não é copiado para o repositório. A página mostra o e-mail profissional, mas não divulga telefone.
+- **Salvar currículo em PDF** abre o diálogo de impressão. A folha de estilos de impressão oculta toda a página comercial e imprime apenas o currículo.
+- GSAP 3.15 e ScrollTrigger são usados de maneira progressiva: entrada inicial e revelação pontual dos blocos, sem animações contínuas ou scrub. A página permanece legível sem CDN e respeita `prefers-reduced-motion`.
+- A composição de interface no hero é um **conceito visual ilustrativo**, não uma captura de um cliente nem uma foto do usuário.
