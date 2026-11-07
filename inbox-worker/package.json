@@ -1,0 +1,12 @@
+{
+  "name": "saite-inbox",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check src/index.js && node --check public/admin.js"
+  },
+  "devDependencies": {
+    "wrangler": "^4.156.0"
+  }
+}
