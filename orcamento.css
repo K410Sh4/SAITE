@@ -180,3 +180,15 @@ button{cursor:pointer}.skip-link{position:absolute;top:-80px;left:12px;padding:1
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
 
 .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+
+/* Orçamentos SAITE: validação segura do Worker sem alterar a identidade visual. */
+.submit-button:disabled,
+.submit-button:disabled:hover{opacity:.55;cursor:not-allowed;transform:none;filter:saturate(.65)}
+.quote-turnstile{display:flex;justify-content:center;min-height:62px;margin:0 auto 18px}
+.quote-alert,.quote-feedback{font-size:13px;line-height:1.6;text-align:center}
+.quote-alert{background:#302820;border:1px solid #8c6243;color:#ffe0bb;padding:14px 16px;border-radius:12px;margin:0 0 18px}
+.quote-feedback{color:#ffcbba;margin:12px auto 6px;min-height:18px}
+.quote-success{max-width:760px;margin:24px auto 0;padding:27px 30px;background:#0e231c;border:1px solid #79d7a0;border-radius:18px;text-align:center}
+.quote-success strong{display:block;color:#bcf2d1;font-size:22px}
+.quote-success p{color:#c8dcd3;line-height:1.65}
+.quote-success a{display:inline-block;margin:9px auto 0;color:#b6f2d3;text-decoration:underline;text-underline-offset:4px}
