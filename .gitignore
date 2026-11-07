@@ -1,0 +1,13 @@
+# Dependencias e arquivos locais
+node_modules/
+inbox-worker/node_modules/
+inbox-worker/.wrangler/
+inbox-worker/.env
+inbox-worker/.env.*
+inbox-worker/.dev.vars
+inbox-worker/.dev.vars.*
+inbox-worker/worker-url.local.txt
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
