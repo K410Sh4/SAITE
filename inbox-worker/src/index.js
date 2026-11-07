@@ -112,7 +112,7 @@ async function siteverify(token, ip, env) {
 async function receive(request, env) {
   const origin = request.headers.get('origin') || '';
   if (origin !== PUBLIC_ORIGIN) return json({error:'Origem nao autorizada.'},403,origin);
-  if (!env.DB || !env.TURNSTILE_SECRET || !env.HASH_SALT)
+  if (!env.DB || !env.TURNSTILE_SECRET || !env.HASH_SALT || !env.GOOGLE_CLIENT_ID?.endsWith('.apps.googleusercontent.com') || !(env.ADMIN_EMAIL || env.ADMIN_GOOGLE_SUB))
     return json({error:'Atendimento ainda nao configurado.'},503,origin);
   let input;
   try { input = await bodyJson(request); }
@@ -203,7 +203,7 @@ export default {
   async fetch(request,env) {
     const url = new URL(request.url), path=url.pathname;
     if(path==='/api/health'&&request.method==='GET')
-      return json({ok:true,ready:!!(env.DB&&env.TURNSTILE_SECRET&&env.HASH_SALT&&env.GOOGLE_CLIENT_ID&&(env.ADMIN_EMAIL||env.ADMIN_GOOGLE_SUB))});
+      return json({ok:true,ready:!!(env.DB&&env.TURNSTILE_SECRET&&env.HASH_SALT&&env.GOOGLE_CLIENT_ID?.endsWith('.apps.googleusercontent.com')&&(env.ADMIN_EMAIL||env.ADMIN_GOOGLE_SUB))});
     if(path==='/api/requests' && request.method==='OPTIONS') {
       if(request.headers.get('Origin')!==PUBLIC_ORIGIN)return new Response(null,{status:403});
       return new Response(null,{status:204,headers:{
