@@ -1,6 +1,24 @@
 # SAITE — portfólio digital
 
-Página inicial estática e responsiva, sem build: `index.html`, `home.css` e `home.js`, com autenticação opcional em `auth.js`. As versões antigas `styles.css`, `app.js` e `projects.js` foram mantidas apenas para histórico e não são carregadas pela página inicial atual.
+Página inicial estática e responsiva, sem build: `index.html`, `saite.css` e `home.js`, com autenticação opcional em `auth.js`. Os estilos antigos (`home.css`, `sobre.css`, `orcamento.css`, `contato.css`, `styles.css`) estão preservados no histórico Git, mas não existem mais na versão publicada.
+
+## CSS centralizado — arquitetura atual
+
+O arquivo **`saite.css`** contém todos os estilos das **seis páginas públicas**. É carregado uma vez por página e armazenado em cache pelo navegador ao navegar entre elas.
+
+| Página | Classe no body | Estilo isolado |
+|---|---|---|
+| `index.html` | `saite-home` | Página inicial |
+| `sobre.html` | `saite-sobre` | Currículo e apresentação |
+| `orcamento.html` e `orcamento-recebido.html` | `saite-orcamento` | Orçamento e confirmação |
+| `contato.html` e `pedidos.html` | `saite-contato` | Contato e acesso aos pedidos |
+
+- Cada seletor do arquivo central é isolado por classe de página: componentes com nomes coincidentes não interferem em outras páginas.
+- Tokens globais de referência usam prefixo `--saite-`. A consolidação **não altera deliberadamente as paletas nem o layout existentes**, para evitar regressões; uma unificação visual deve ser uma alteração separada.
+- Estilos inline da página `pedidos.html` foram movidos para `saite.css`.
+- O painel privado da API Cloudflare Worker é **outra aplicação, em outra origem**: `inbox-worker/public/admin.css` permanece separado por segurança e independência de deploy.
+- Para editar estilos, utilize **`saite.css`**; não recrie folhas CSS individuais. Execute `node scripts/check-central-css.mjs` para verificar referências, isolamento e ausência de CSS inline. O GitHub Actions executa a mesma verificação automaticamente.
+- A refatoração foi comparada antes da publicação em Chromium com 24 combinações (6 páginas × 4 larguras), sem alterações detectadas no estilo computado nem na geometria dos elementos.
 
 ## Página inicial atual (layout verde e amarelo)
 

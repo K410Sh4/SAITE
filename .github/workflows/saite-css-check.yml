@@ -1,0 +1,26 @@
+name: SAITE CSS centralizado
+on:
+  push:
+    paths:
+      - '*.html'
+      - '*.css'
+      - 'scripts/check-central-css.mjs'
+      - '.github/workflows/saite-css-check.yml'
+  pull_request:
+    paths:
+      - '*.html'
+      - '*.css'
+      - 'scripts/check-central-css.mjs'
+      - '.github/workflows/saite-css-check.yml'
+permissions:
+  contents: read
+jobs:
+  verify-styles:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validar folha central e classes de página
+        run: node scripts/check-central-css.mjs
