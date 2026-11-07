@@ -1,3 +1,18 @@
+# Recuperação: banco criado, mas instalador parou ao ler UUID
+
+Se o Wrangler já exibiu **Successfully created DB 'saite-inbox-db'**, **não crie outra base**. Atualize apenas o instalador, preservando o arquivo local `wrangler.jsonc` editado pelo Wrangler:
+
+```powershell
+cd "$HOME\SAITE"
+git fetch origin main
+git restore --source=origin/main -- setup-inbox.ps1
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\setup-inbox.ps1 -Etapa Preparar -DatabaseId "UUID_RECEBIDO_NA_CRIACAO"
+```
+
+Use o UUID real exibido na criação do banco. O instalador agora normaliza a configuração para um único binding `DB`, conforme esperado no código do Worker, reutiliza o D1 existente, executa as migrações e publica o Worker de preparação. Não rode novamente `wrangler d1 create` manualmente.
+
+---
+
 # Instalação guiada no Windows (caminho recomendado)
 
 No PowerShell, na pasta `SAITE`, execute o instalador preparado no repositório:
