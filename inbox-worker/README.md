@@ -1,3 +1,23 @@
+# Instalação guiada no Windows (caminho recomendado)
+
+No PowerShell, na pasta `SAITE`, execute o instalador preparado no repositório:
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\setup-inbox.ps1 -Etapa Preparar
+```
+
+Depois de obter a URL `https://saite-inbox.SUA-CONTA.workers.dev`, crie o cliente OAuth Web do Google autorizando **exatamente essa origem** e um widget Turnstile permitindo `k410sh4.github.io`. Para registrar os identificadores e secrets no servidor:
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\setup-inbox.ps1 -Etapa Ativar
+```
+
+O script roda testes, cria/identifica o D1, aplica migrações e publica o Worker; a segunda etapa coleta identificadores públicos e pede os segredos diretamente ao Wrangler. Não informe chaves secretas no chat.
+
+**Atenção:** A segunda etapa escreve uma configuração pública local, mas não a publica no GitHub automaticamente. Primeiro teste o login Google no painel do Worker. A mudança dos formulários de produção só deve acontecer após um pedido de teste confirmado.
+
+---
+
 # SAITE — Central privada de pedidos e notificações
 
 O projeto está preparado para receber solicitações de SAITE, Margot e Espaço Piscina, armazenar no Cloudflare D1 e disponibilizar a caixa de entrada **somente após login Google verificado no Worker**. Ao clicar em "Responder pelo Gmail", a central abre o Gmail com o endereço do cliente preenchido. Ela **não envia mensagens automaticamente**.
