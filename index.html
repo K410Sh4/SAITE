@@ -1,40 +1,49 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="referrer" content="no-referrer" />
-  <meta http-equiv="Content-Security-Policy" content="base-uri 'self'; object-src 'none'; upgrade-insecure-requests; form-action 'self' https://formsubmit.co" />
-  <meta name="theme-color" content="#0a0c12" />
-  <meta name="description" content="SAITE — uma vitrine de experiências digitais e projetos web." />
-  <title>SAITE — Projetos digitais</title>
-  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./styles.css" />
-  <script type="module" src="./app.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="base-uri 'self'; object-src 'none'; upgrade-insecure-requests; form-action 'self' https://formsubmit.co">
+  <meta name="theme-color" content="#061711">
+  <meta name="description" content="SAITE — Sites Essenciais, Comerciais e Inteligentes. Conheça nossos projetos web e solicite um orçamento personalizado.">
+  <meta property="og:title" content="SAITE | Soluções Digitais">
+  <meta property="og:description" content="Seu negócio merece um site à altura. Conheça os serviços, projetos e solicite um orçamento.">
+  <title>SAITE | Soluções Digitais</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./home.css">
+  <script type="module" src="./home.js"></script>
 </head>
 <body>
-  <a class="skip-link" href="#portfolio">Pular para os projetos</a>
-  <div class="page-noise" aria-hidden="true"></div>
-  <header class="site-header">
-    <a class="brand" href="#inicio" aria-label="SAITE, voltar ao início">
-      <span class="brand-symbol" aria-hidden="true">S<span class="brand-dot">.</span></span>
-      <span class="brand-name">SAITE</span>
-      <span class="brand-tag">DIGITAL SPACE</span>
+<a class="skip-link" href="#conteudo">Ir ao conteúdo</a>
+
+<header class="home-header">
+  <div class="nav-shell">
+    <a class="brand" href="#inicio" aria-label="SAITE — início">
+      <svg class="brand-mark" viewBox="0 0 44 44" aria-hidden="true"><path d="M22 2 2 39l19-9L38 42l4-35-20-5Z" fill="#38e5aa"/><path d="m2 39 19-9L12 19 2 39Z" fill="#9af8d0"/><path d="m21 30 17 12-5-20-12 8Z" fill="#0d9872"/></svg>
+      <strong>SAITE</strong><span class="brand-divider" aria-hidden="true"></span><small>Soluções Digitais</small>
     </a>
-    <nav class="header-actions" aria-label="Navegação principal">
-      <a class="header-link" href="./sobre.html">Sobre mim <span class="header-link-arrow" aria-hidden="true">↗</span></a>
-      <a class="header-quote" href="./orcamento.html">Quero fazer um orçamento <span aria-hidden="true">↗</span></a>
-      <span class="header-divider" aria-hidden="true"></span>
+
+    <nav class="main-nav" aria-label="Menu principal">
+      <a href="#inicio" class="is-current" aria-current="page">Início</a>
+      <a href="./sobre.html">Sobre mim</a>
+      <a href="./orcamento.html" class="outline-quote">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-12.5 7.5L3 20.5l1.5-4.5A8.5 8.5 0 1 1 20 11.5Z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9 8.3c-.4 1.8 2.3 5.2 5 5.7l1.6-1.5" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>
+        Quero fazer um orçamento
+      </a>
+    </nav>
+
+    <div class="nav-account">
       <div class="account-area">
-        <button id="loginButton" class="login-button" type="button" aria-label="Entrar com Google">
-          <svg class="google-mark" width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.27 5.48-4.8 7.18l7.73 6C44.38 38.03 46.98 31.88 46.98 24.55z"/><path fill="#FBBC05" d="M10.53 28.59A14.44 14.44 0 0 1 9.75 24c0-1.59.27-3.13.77-4.59l-7.98-6.2A23.94 23.94 0 0 0 0 24c0 3.87.93 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.92-2.13 15.89-5.8l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
-          <span id="loginText">Entrar com Google</span>
+        <button id="loginButton" class="login-button" type="button" aria-label="Entrar com Google" title="Entrar com Google">
+          <svg class="google-mark" width="16" height="16" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.27 5.48-4.8 7.18l7.73 6C44.38 38.03 46.98 31.88 46.98 24.55z"/><path fill="#FBBC05" d="M10.53 28.59A14.44 14.44 0 0 1 9.75 24c0-1.59.27-3.13.77-4.59l-7.98-6.2A23.94 23.94 0 0 0 0 24c0 3.87.93 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.92-2.13 15.89-5.8l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+          <span id="loginText">Entrar</span>
         </button>
         <button id="profileButton" class="profile-button" type="button" hidden aria-expanded="false" aria-controls="profileMenu">
-          <img id="profilePhoto" src="" alt="" referrerpolicy="no-referrer" hidden />
+          <img id="profilePhoto" src="" alt="" referrerpolicy="no-referrer" hidden>
           <span id="profileInitials" class="profile-initials" aria-hidden="true">S</span>
           <span id="profileName" class="profile-name">Minha conta</span>
           <svg width="13" height="13" viewBox="0 0 20 20" aria-hidden="true"><path d="m5 7 5 5 5-5" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>
@@ -44,52 +53,179 @@
           <button id="logoutButton" class="logout-button" type="button">Sair da conta</button>
         </div>
       </div>
-    </nav>
-  </header>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Navegação mobile" hidden>
+    <a href="#inicio" aria-current="page">Início</a>
+    <a href="./sobre.html">Sobre mim</a>
+    <a href="#planos">Tipos de site</a>
+    <a href="#portfolio">Projetos</a>
+    <a href="./orcamento.html" class="mobile-quote">Quero fazer um orçamento ↗</a>
+  </nav>
+</header>
 
-  <main id="inicio">
-    <section id="portfolio" class="showcase" aria-labelledby="showcaseTitle">
-      <div class="showcase-head">
-        <p class="eyebrow"><span class="eyebrow-point" aria-hidden="true"></span> PROJETOS SELECIONADOS <span class="eyebrow-separator">/</span> 001—002</p>
-        <h1 id="showcaseTitle">Ideias que ganham <span class="text-gradient">forma.</span></h1>
-        <p class="showcase-description">Dois projetos reais. Explore as possibilidades.</p>
+<main id="conteudo">
+  <section class="hero container" id="inicio" aria-labelledby="heroTitle">
+    <div class="hero-content">
+      <span class="accent-dash" aria-hidden="true"></span>
+      <h1 id="heroTitle">Seu negócio<br>merece um site<br><em>à altura.</em></h1>
+      <p>Sites profissionais que transformam presença digital em oportunidades.</p>
+      <div class="hero-actions">
+        <a class="yellow-cta" href="./orcamento.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 18 4-5 5 2 5-10-10 5-2 6-3 2z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="m3 21 5-5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>Quero fazer um orçamento <span aria-hidden="true">›</span></a>
+        <a class="ghost-link" href="#portfolio">Ver projetos <span aria-hidden="true">↗</span></a>
       </div>
-      <div id="carousel" class="carousel" aria-label="Carrossel de dois projetos" aria-roledescription="carrossel">
-        <div class="rail rail-back" aria-hidden="true"></div>
-        <div id="carouselTrack" class="carousel-track"></div>
-        <div class="rail rail-front" aria-hidden="true"></div>
-      </div>
-      <div class="carousel-bottom">
-        <div class="carousel-count" aria-live="off"><span id="activeNumber">01</span><span class="count-separator"> / </span>02</div>
-        <div id="carouselDots" class="carousel-dots" aria-label="Escolher projeto"></div>
-        <div class="carousel-buttons">
-          <button id="previousButton" class="round-button" type="button" aria-label="Projeto anterior"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m14 5-7 7 7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></button>
-          <button id="nextButton" class="round-button" type="button" aria-label="Próximo projeto"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m10 5 7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></button>
-        </div>
-      </div>
-    </section>
+    </div>
 
-    <section id="preview" class="preview-section" aria-labelledby="previewTitle">
-      <div class="preview-head">
-        <div>
-          <p class="eyebrow muted"><span class="preview-indicator" aria-hidden="true"></span> PREVIEW EM DESTAQUE</p>
-          <h2 id="previewTitle">Carregando projeto</h2>
-          <p id="previewDescription" class="preview-description"></p>
+    <div class="hero-visual" role="img" aria-label="Ilustração de notebook com uma interface de site SAITE e paisagem de montanhas">
+      <span class="halo halo-mint" aria-hidden="true"></span>
+      <span class="halo halo-yellow" aria-hidden="true"></span>
+      <div class="display-platform" aria-hidden="true"><div class="platform-top"></div><div class="platform-front"></div></div>
+      <div class="illustrated-laptop" aria-hidden="true">
+        <div class="laptop-lid">
+          <div class="laptop-inner">
+            <div class="laptop-toolbar"><span class="laptop-logo">◢ SAITE</span><span>— &nbsp; — &nbsp; —</span></div>
+            <svg class="mountain-art" viewBox="0 0 600 280" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="sky" x1="0" y1="0" x2="0.5" y2="1"><stop stop-color="#041f25"/><stop offset=".6" stop-color="#16785d"/><stop offset="1" stop-color="#b3d9a4"/></linearGradient>
+                <linearGradient id="ridge" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#6bd4a3"/><stop offset="1" stop-color="#05372c"/></linearGradient>
+              </defs>
+              <rect width="600" height="280" fill="url(#sky)"/>
+              <path d="M0 154 98 93 142 123 212 45 290 114 353 68 421 125 497 32 600 114V280H0Z" fill="#4a977d"/>
+              <path d="m0 180 114-79 75 38 87-90 87 68 91-39 146 83v119H0Z" fill="url(#ridge)"/>
+              <path d="m0 218 120-62 89 22 95-92 89 91 69-40 138 63v80H0Z" fill="#0a4f40"/>
+              <path d="m0 240 97-25 106 22 105-73 88 72 93-42 111 32v54H0Z" fill="#06382f"/>
+            </svg>
+            <div class="laptop-screen-copy">
+              <small>DESIGN • TECNOLOGIA</small>
+              <span class="mock-line long"></span><span class="mock-line medium"></span><span class="mock-line short"></span>
+              <span class="mock-action"></span>
+            </div>
+            <div class="laptop-screen-tabs"><span>▣</span><span>◇</span><span>▥</span></div>
+          </div>
         </div>
-        <a id="visitLink" class="visit-link" href="#preview" target="_blank" rel="noopener noreferrer" hidden>Visitar projeto <span aria-hidden="true">↗</span></a>
+        <div class="laptop-base"><div class="laptop-trackpad"></div></div>
       </div>
-      <div class="browser-frame">
-        <div class="browser-chrome" aria-label="Janela de demonstração">
-          <div class="browser-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-          <div class="browser-address"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" fill="none" stroke-width="1.6"/></svg><span id="previewAddress">Prévia ilustrativa</span></div>
-          <span class="browser-status" aria-hidden="true">PREVIEW</span>
-        </div>
-        <div id="previewContent" class="preview-content" aria-label="Prévia visual do projeto"></div>
-      </div>
-      <div class="preview-foot"><span id="previewLabel">CONCEITO VISUAL</span><span>SAITE © 2026</span></div>
-    </section>
-  </main>
+      <div class="decorative-leaves" aria-hidden="true"><i></i><i></i><i></i></div>
+    </div>
+  </section>
 
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <section id="planos" class="plans-section container" aria-labelledby="plansTitle">
+    <div class="section-copy visually-hidden"><h2 id="plansTitle">Tipos de sites</h2></div>
+    <div class="plans-grid">
+      <a class="plan-card plan-essential" href="./orcamento.html?plano=Essencial" aria-label="Solicitar orçamento de site Essencial, a partir de R$ 100">
+        <div class="plan-decoration" aria-hidden="true"></div>
+        <div class="plan-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linejoin="round"><rect x="7" y="8" width="34" height="26" rx="4"/><path d="M18 40h12m-6-6v6"/></svg></div>
+        <h3>Essencial</h3><p>Presença digital e informações da sua empresa.</p>
+        <span class="plan-price">A partir de <strong>R$ 100</strong></span>
+        <span class="plan-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="plan-card plan-commercial" href="./orcamento.html?plano=Comercial" aria-label="Solicitar orçamento de site Comercial, a partir de R$ 250">
+        <div class="plan-decoration" aria-hidden="true"></div>
+        <div class="plan-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 17 12 7h24l4 10-3 5H11l-3-5Z"/><path d="M12 22v18h24V22M19 40V29h10v11"/></svg></div>
+        <h3>Comercial</h3><p>Catálogo, orçamentos e contato pelo WhatsApp.</p>
+        <span class="plan-price">A partir de <strong>R$ 250</strong></span>
+        <span class="plan-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="plan-card plan-smart" href="./orcamento.html?plano=Inteligente" aria-label="Solicitar orçamento de site Inteligente, a partir de R$ 500">
+        <div class="plan-decoration" aria-hidden="true"></div>
+        <div class="plan-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6 41 16 24 26 7 16 24 6ZM7 25l17 10 17-10M7 34l17 10 17-10"/></svg></div>
+        <h3>Inteligente</h3><p>Gestão e recursos avançados sob medida.</p>
+        <span class="plan-price">A partir de <strong>R$ 500</strong></span>
+        <span class="plan-arrow" aria-hidden="true">↗</span>
+      </a>
+    </div>
+    <p class="plan-disclaimer">Valores iniciais de referência; o orçamento final depende do escopo e das funcionalidades contratadas.</p>
+  </section>
+
+  <section id="beneficios" class="benefits-section container" aria-labelledby="benefitsTitle">
+    <div class="section-heading"><h2 id="benefitsTitle">Por que escolher o <span>SAITE?</span></h2><p>Planejamento, identidade e atenção aos detalhes do seu projeto.</p></div>
+    <div class="benefits-grid">
+      <article class="benefit-card">
+        <svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linejoin="round"><path d="M21 3 9 22h11l-2 15 14-21H21l0-13Z"/></svg>
+        <h3>Objetivo</h3><p>Foco no que realmente importa para o negócio.</p>
+      </article>
+      <article class="benefit-card">
+        <svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linejoin="round"><path d="M20 3 34 9v10c0 10-7 15-14 18C13 34 6 29 6 19V9l14-6Z"/><path d="m13 20 5 5 10-11"/></svg>
+        <h3>Revisado</h3><p>Testes e ajustes para uma experiência consistente.</p>
+      </article>
+      <article class="benefit-card">
+        <svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.1"><rect x="3" y="7" width="25" height="20" rx="3"/><path d="M8 33h15M15 27v6"/><rect x="26" y="17" width="11" height="19" rx="2"/></svg>
+        <h3>Responsivo</h3><p>Uma navegação adaptada ao computador e ao celular.</p>
+      </article>
+      <article class="benefit-card">
+        <svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><path d="M15 7h10l2 5 5 2v11l-5 2-2 5H15l-2-5-5-2V14l5-2 2-5Z"/><circle cx="20" cy="19.5" r="5"/></svg>
+        <h3>Personalizado</h3><p>Construído em torno da identidade e das necessidades.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="portfolio" class="projects-section container" aria-labelledby="projectsTitle">
+    <div class="section-heading"><h2 id="projectsTitle">Confira <span>alguns projetos</span></h2><p>Dois sites reais que mostram diferentes identidades e propostas.</p></div>
+    <div id="projectsViewport" class="projects-viewport" aria-label="Projetos desenvolvidos" aria-roledescription="carrossel" tabindex="0">
+      <div id="projectsTrack" class="projects-track">
+        <article class="work-card" data-project="margot">
+          <div class="work-visual work-visual-margot">
+            <div class="work-laptop" aria-hidden="true">
+              <div class="work-laptop-screen">
+                <div class="work-laptop-top"><span>MARGOT</span><span>✧</span></div>
+                <img src="https://k410sh4.github.io/Margot/assets/hero-1.webp" loading="lazy" decoding="async" alt="Imagem de acessórios e joias utilizada no site Margot">
+              </div><span class="work-laptop-base"></span>
+            </div>
+            <span class="image-fallback" aria-hidden="true">MARGOT</span>
+          </div>
+          <div class="work-info"><div><h3>Margot</h3><p>Loja de bijuterias e acessórios.</p></div>
+            <div class="work-actions">
+              <button type="button" class="preview-open" data-preview="margot" aria-label="Abrir prévia do site Margot">Prévia</button>
+              <a href="https://k410sh4.github.io/Margot/" target="_blank" rel="noopener noreferrer" aria-label="Visitar o site Margot, nova aba">↗</a>
+            </div>
+          </div>
+        </article>
+        <article class="work-card" data-project="piscina">
+          <div class="work-visual work-visual-piscina">
+            <div class="work-laptop" aria-hidden="true">
+              <div class="work-laptop-screen">
+                <div class="work-laptop-top"><span>ESPAÇO PISCINA</span><span>◉</span></div>
+                <img src="https://k410sh4.github.io/EspacoPiscinas/assets/problemas/ph-alto.webp" loading="lazy" decoding="async" alt="Imagem de piscina utilizada no site Espaço Piscina">
+              </div><span class="work-laptop-base"></span>
+            </div>
+            <span class="image-fallback" aria-hidden="true">ESPAÇO PISCINA</span>
+          </div>
+          <div class="work-info"><div><h3>Espaço Piscina</h3><p>Produtos e soluções para piscinas.</p></div>
+            <div class="work-actions">
+              <button type="button" class="preview-open" data-preview="piscina" aria-label="Abrir prévia do site Espaço Piscina">Prévia</button>
+              <a href="https://k410sh4.github.io/EspacoPiscinas/" target="_blank" rel="noopener noreferrer" aria-label="Visitar Espaço Piscina, nova aba">↗</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+    <div class="project-controls" aria-label="Navegação pelos projetos">
+      <button type="button" class="project-arrow" id="projectPrev" aria-label="Projeto anterior">‹</button>
+      <div class="project-dots" id="projectDots" role="group" aria-label="Escolher projeto">
+        <button type="button" data-go="0" aria-label="Mostrar Margot" aria-current="true"></button>
+        <button type="button" data-go="1" aria-label="Mostrar Espaço Piscina" aria-current="false"></button>
+      </div>
+      <button type="button" class="project-arrow" id="projectNext" aria-label="Próximo projeto">›</button>
+    </div>
+  </section>
+
+  <section class="cta-section container" aria-labelledby="ctaTitle">
+    <div class="cta-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linejoin="round"><path d="M12 31 16 15 37 5l-6 22-9 4-7 11-3-11Z"/><path d="m16 15 15 12M18 34l-7 9M9 25 4 30"/></svg></div>
+    <h2 id="ctaTitle">Pronto para digitalizar <span>o seu negócio?</span></h2>
+    <a class="yellow-cta cta-short" href="./orcamento.html">Solicitar orçamento <span aria-hidden="true">↗</span></a>
+  </section>
+</main>
+
+<footer class="home-footer container"><span>SAITE © 2026</span><a href="./sobre.html">Sobre mim</a><a href="./orcamento.html">Solicitar orçamento</a></footer>
+
+<dialog id="previewDialog" class="preview-dialog" aria-labelledby="previewDialogTitle">
+  <div class="dialog-toolbar"><div><span>PRÉVIA INTERATIVA</span><h2 id="previewDialogTitle">Visualizar projeto</h2></div><button id="closePreview" type="button" aria-label="Fechar prévia">✕</button></div>
+  <div class="dialog-browser"><div class="dialog-browser-toolbar"><span aria-hidden="true">● ● ●</span><span id="dialogAddress"></span></div><iframe id="previewIframe" title="Visualização do site selecionado" loading="lazy" referrerpolicy="no-referrer"></iframe></div>
+  <div class="dialog-foot"><span>Se a prévia não abrir, use o site original.</span><a id="dialogVisit" href="https://k410sh4.github.io/Margot/" target="_blank" rel="noopener noreferrer">Abrir site completo ↗</a></div>
+</dialog>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
 </body>
 </html>

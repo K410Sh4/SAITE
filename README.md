@@ -1,14 +1,16 @@
 # SAITE — portfólio digital
 
-Página inicial estática, responsiva e sem build: `index.html`, `styles.css`, `app.js`, `projects.js` e `auth.js`.
+Página inicial estática e responsiva, sem build: `index.html`, `home.css` e `home.js`, com autenticação opcional em `auth.js`. As versões antigas `styles.css`, `app.js` e `projects.js` foram mantidas apenas para histórico e não são carregadas pela página inicial atual.
 
-## Recursos
+## Página inicial atual (layout verde e amarelo)
 
-- Header compacto (5–10% de altura) com marca à esquerda, **Sobre** e conta Google à direita.
-- Carrossel 3D em **perspectiva de profundidade**: card próximo e grande à esquerda, intermediário ao centro, distante e pequeno à direita. Navegação por arraste horizontal com dedo ou mouse, roda do mouse e trackpad, setas, teclado, autoplay e `prefers-reduced-motion`. A rolagem vertical da página continua disponível.
-- Área de preview ampla abaixo do carrossel. A troca de projeto aplica blur diretamente a todos os blocos da prévia (título, descrição, moldura, conteúdo e rodapé), com substituição sincronizada no pico do desfoque.
-- Projetos reais **Margot Acessórios** e **Espaço Piscina** em um carrossel de dois cards, com capas leves dos sites.
-- Login Google com Firebase Authentication, visualização do perfil e logout **assim que configurado**.
+- Header com marca SAITE, **Início**, **Sobre mim**, **Quero fazer um orçamento** e conta Google configurável. No celular, menu retrátil e botão de login compacto.
+- Hero com título “Seu negócio merece um site à altura”, CTA de orçamento e ilustração de notebook inteiramente em CSS/SVG, responsiva e sem dependência de imagens pesadas.
+- Três cartões de serviços **Essencial**, **Comercial** e **Inteligente**, com preços iniciais de referência e links para `orcamento.html?plano=...` que pré-selecionam o tipo de site no formulário.
+- Quatro benefícios, dois projetos reais (**Margot** e **Espaço Piscina**) com cards ilustrativos de laptop e controle de galeria. No mobile, a galeria aceita swipe horizontal.
+- Botão **Prévia** de cada projeto abre um diálogo acessível e carrega o site original por iframe apenas sob demanda. Fechar o diálogo descarrega o iframe. O link externo permanece disponível se houver bloqueio de incorporação.
+- Banner final para solicitação de orçamento. Layout adaptado a dispositivos móveis e respeita `prefers-reduced-motion`.
+- A integração com Firebase permanece pendente se `firebase-config.js` estiver definido como `null`; não há simulação de login.
 
 ## Publicar no GitHub Pages
 
@@ -121,3 +123,7 @@ As melhorias reduzem trabalho desnecessário, mas FPS, consumo de energia e mem�
 - Campos obrigatórios: e-mail, tipo de site e serviços/produtos da empresa. Observações permanecem opcionais; validação nativa de e-mail, minlength e obrigatoriedade.
 - Formulário mantém POST tradicional HTTPS ao FormSubmit para `elgator833@gmail.com`, honeypot e configuração de retorno. Não existe envio AJAX nem confirmação falsa: a ativação do destinatário e um teste real de entrega são necessários.
 - A página `orcamento-recebido.html` usa a mesma folha `orcamento.css` e foi preservada.
+
+## Nota de manutenção — versão anterior
+
+As seções antigas deste README sobre carrossel 3D, blur do preview e `projects.js` descrevem o layout anterior, mantido no histórico do repositório para eventual consulta. Não fazem parte da página inicial atual, que usa `home.js` e `home.css`.
