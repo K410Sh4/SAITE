@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>SAITE — Central privada de pedidos</title>
+<link rel="stylesheet" href="./admin.css">
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script type="module" src="./admin.js"></script>
+</head>
+<body>
+<header class="topbar">
+ <a class="brand" href="https://k410sh4.github.io/SAITE/" target="_blank" rel="noopener noreferrer">SAITE<span>.</span><small>CENTRAL PRIVADA</small></a>
+ <div class="top-actions"><span id="auth-state">Acesso restrito</span><button id="signout" hidden type="button">Encerrar sessão</button></div>
+</header>
+<main>
+ <section id="gate" class="gate">
+  <div class="shield">✦</div><p class="eyebrow">ACESSO ADMINISTRATIVO</p>
+  <h1>Seus pedidos, em um só lugar.</h1>
+  <p>Entre com a conta Google autorizada. A confirmação de identidade e a autorização são verificadas pelo servidor.</p>
+  <div id="google-signin" class="google-signin"></div>
+  <p id="gate-error" role="alert" class="notice" aria-live="polite"></p>
+ </section>
+ <section id="panel" hidden aria-label="Caixa privada de pedidos">
+  <div class="page-head"><div><p class="eyebrow">PEDIDOS E NOTIFICAÇÕES</p><h1>Caixa de entrada<span>.</span></h1>
+  <p>Pedidos de SAITE, Margot e Espaço Piscina. Responda usando seu Gmail; o sistema não envia e-mails automaticamente.</p></div>
+  <button id="refresh" type="button" class="btn">Atualizar</button></div>
+  <div class="metrics"><div><strong id="total">—</strong><span>Pedidos no filtro</span></div><div><strong id="new-count">—</strong><span>Novos nesta página</span></div></div>
+  <div class="filters"><label>Origem<select id="filter-source"><option value="todos">Todos os sites</option><option value="saite">SAITE</option><option value="margot">Margot</option><option value="espaco-piscina">Espaço Piscina</option></select></label>
+   <label>Situação<select id="filter-status"><option value="todos">Todas</option><option value="novo">Novos</option><option value="lido">Lidos</option><option value="respondido">Respondidos</option><option value="arquivado">Arquivados</option></select></label></div>
+  <p id="panel-status" role="status" aria-live="polite"></p>
+  <div class="layout"><div id="requests" class="request-list" aria-label="Solicitações"></div>
+   <article id="detail" class="detail"><div class="placeholder">Selecione uma solicitação para consultar o conteúdo e responder por e-mail.</div></article></div>
+  <div class="pagination"><button type="button" id="previous">Anterior</button><span id="page">Página 1</span><button type="button" id="next">Próxima</button></div>
+ </section>
+</main>
+<footer>SAITE · Atendimento privado. Proteja o acesso à sua conta Google com verificação em duas etapas.</footer>
+</body>
+</html>
