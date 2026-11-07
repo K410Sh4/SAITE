@@ -10,10 +10,27 @@ let apiBase='', widgetId=null, challengeToken='', ready=false, sending=false;
 const params=new URLSearchParams(location.search);
 const requestedSource=params.get('origem')||'saite';
 if(sources.has(requestedSource))form.elements.source.value=requestedSource;
-const subject=(params.get('assunto')||'').trim().slice(0,120);
-const summary=(params.get('pedido')||'').trim().slice(0,3000);
+// Dados de pre-preenchimento permanecem nesta aba, nao sao enviados em URL,
+// nem registrados no historico de navegacao ou em logs da infraestrutura.
+let pending=null;
+try{
+  const raw=sessionStorage.getItem('saite:pending-request:v1');
+  if(raw){
+    sessionStorage.removeItem('saite:pending-request:v1');
+    const parsed=JSON.parse(raw);
+    if(parsed&&typeof parsed==='object'&&
+      sources.has(parsed.source)&&parsed.source===requestedSource&&
+      Number.isFinite(parsed.timestamp)&&Date.now()-parsed.timestamp>=0&&
+      Date.now()-parsed.timestamp<15*60*1000){
+      pending=parsed;
+    }
+  }
+}catch(error){console.warn('Nao foi possivel recuperar o pre-preenchimento local.')}
+const subject=String(pending?.subject||params.get('assunto')||'').trim().slice(0,120);
+const summary=String(pending?.message||params.get('pedido')||'').trim().slice(0,3000);
 if(subject)form.elements.subject.value=subject;
 if(summary)form.elements.message.value=summary;
+if(pending?.name&&typeof pending.name==='string')form.elements.name.value=pending.name.slice(0,80);
 function say(message){status.textContent=message||'';}
 function setSubmit(){
   send.disabled=!ready||!challengeToken||sending;
