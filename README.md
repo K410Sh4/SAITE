@@ -154,3 +154,12 @@ As seções antigas deste README sobre carrossel 3D, blur do preview e `projects
 - Ajuste de `text-size-adjust`, largura dos contêineres, cartões e espaçamentos responsivos, evitando cortes e excesso de espaço no celular.
 - Redução das alturas da ilustração principal, dos cards de projetos e dos cards de benefícios na faixa até 600px; a paleta verde/amarelo e as páginas Sobre mim/Orçamento foram preservadas.
 - Se o navegador do usuário aplicar zoom manual ou escala de interface do sistema, o layout ainda pode parecer maior, e deve ser inspecionado no dispositivo.
+
+## SAITE Design System V2 — identidade corporativa e tipografia
+
+- Todos os 6 HTML públicos carregam uma única folha `saite.css` e a mesma fonte Google Fonts com `display=swap` e fallback local.
+- `DM Sans` é a família de texto e controles; `Space Grotesk` é a família para títulos.
+- Tokens globais: fundo `#050D1B`, superfícies `#0C2036`, destaque `#09C7FD`, destaque suave `#5CECFF`. Cores antigas foram substituídas por overrides centrais nos componentes principais.
+- Home: transbordamento horizontal contido na viewport, preservando a navegação horizontal interna do carrossel em telas pequenas; alvos de toque principais ampliados.
+- O painel administrativo do Worker continua com CSS independente e não é republicado com o GitHub Pages.
+- O formulário de orçamento e as regras da API foram mantidos; esta é uma alteração de apresentação, não de backend.

@@ -58,3 +58,61 @@ body.saite-orcamento{
 :where(body.saite-contato) .saite-pedidos-layout{grid-template-columns:1fr;max-width:680px;text-align:center}
 :where(body.saite-contato) .saite-pedidos-description{color:#b9c2d8;line-height:1.7}
 :where(body.saite-contato) .saite-pedidos-admin-link{justify-content:center;text-decoration:none}
+
+/* SAITE Design System V2: cores, fontes e contenção; Worker isolado */
+:root{--saite-bg:#050d1b;--saite-surface:#0c2036;--saite-raised:#112b45;--saite-accent:#09c7fd;--saite-cyan:#5cecff;--saite-ink:#f3f9ff;--saite-muted:#b0c4d6;--saite-border:rgba(79,166,220,.32);--saite-font-body:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--saite-font-display:'Space Grotesk','DM Sans',system-ui,sans-serif;--saite-color-night:var(--saite-bg);--saite-color-mint:var(--saite-accent);--saite-color-green:var(--saite-accent);--saite-color-yellow:var(--saite-cyan);--saite-color-text:var(--saite-ink);--saite-focus-ring:2px solid var(--saite-cyan)}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+:is(body.saite-home,body.saite-sobre,body.saite-orcamento,body.saite-contato){--bg:var(--saite-bg);--panel:var(--saite-surface);--panel-2:var(--saite-raised);--panel-soft:var(--saite-raised);--panel-raised:var(--saite-raised);--mint:var(--saite-accent);--mint-soft:var(--saite-cyan);--mint-strong:var(--saite-accent);--mint-dark:#102b45;--yellow:var(--saite-cyan);--ink:var(--saite-ink);--text:var(--saite-ink);--muted:var(--saite-muted);--line:var(--saite-border);--line-accent:var(--saite-border);font-family:var(--saite-font-body);font-synthesis:none;color:var(--saite-ink);background:radial-gradient(ellipse 55% 32% at 78% 3%,rgba(14,104,177,.20),transparent 76%),var(--saite-bg);min-width:320px;max-width:100%;overflow-x:clip;-webkit-font-smoothing:antialiased}
+:is(body.saite-home,body.saite-sobre,body.saite-orcamento,body.saite-contato) :is(h1,h2,h3,h4){font-family:var(--saite-font-display);font-optical-sizing:auto;font-synthesis:none;overflow-wrap:break-word}
+:is(body.saite-home,body.saite-sobre,body.saite-orcamento,body.saite-contato) :is(button,input,textarea,select){font-family:var(--saite-font-body)}
+:is(body.saite-home,body.saite-sobre,body.saite-orcamento,body.saite-contato) :is(a,button,input,select,textarea):focus-visible{outline:2px solid var(--saite-cyan);outline-offset:3px}
+body.saite-home .nav-shell,body.saite-sobre .topbar,body.saite-orcamento .site-header,body.saite-contato .header{background:rgba(7,19,35,.97);border-color:var(--saite-border)}
+body.saite-home .outline-quote,body.saite-orcamento .nav-quote,body.saite-sobre .nav .quote-nav-link,body.saite-contato .back{color:var(--saite-cyan);background:#0d2843;border-color:var(--saite-accent)}
+body.saite-home .outline-quote:hover,body.saite-orcamento .nav-quote:hover,body.saite-sobre .nav .quote-nav-link:hover{background:#163b60;color:#fff}
+body.saite-home .hero h1 em,body.saite-home .section-heading h2 span,body.saite-home .cta-section h2 span{color:var(--saite-cyan)}
+body.saite-home .yellow-cta,body.saite-home .mobile-nav .mobile-quote{background:linear-gradient(110deg,#09c7fd,#5cecff);border-color:#71eaff;color:#052038;box-shadow:0 8px 25px rgba(9,199,253,.14)}
+body.saite-home .accent-dash{background:var(--saite-accent);box-shadow:0 0 15px rgba(9,199,253,.28)}
+body.saite-home .halo-mint{background:linear-gradient(135deg,#5cecff,#127bc0 65%,#083351)}
+body.saite-home .halo-yellow{background:linear-gradient(145deg,#c6f5ff,#5aabd4)}
+body.saite-home .platform-top{background:linear-gradient(120deg,#0b527f,#071a32 65%,#224c66);border-color:#58caff}
+body.saite-home .platform-front{background:linear-gradient(100deg,#092743,#07182c,#19425e);border-bottom-color:#31bff1}
+body.saite-home .mountain-art,body.saite-home .decorative-leaves{filter:hue-rotate(57deg) saturate(.83)}
+body.saite-home .plan-card{background:linear-gradient(140deg,#10283f,#08182b);border-color:var(--saite-border)}
+body.saite-home .plan-commercial{background:linear-gradient(145deg,#133d5b,#0b2340);border-color:var(--saite-accent);box-shadow:0 0 20px rgba(9,199,253,.08)}
+body.saite-home .plan-decoration{background:linear-gradient(115deg,#0d5697,#3dd3fa)}
+body.saite-home .plan-commercial .plan-decoration{background:linear-gradient(115deg,#147db1,#7ce3ff)}
+body.saite-home .plan-commercial .plan-icon,body.saite-home .plan-commercial .plan-arrow,body.saite-home .plan-commercial .plan-price{color:var(--saite-cyan);border-color:var(--saite-accent)}
+body.saite-home .plan-price{background:#07192b;border-color:var(--saite-border)}
+body.saite-home .benefit-card{background:linear-gradient(145deg,#0d263e,#08192d);border-color:var(--saite-border)}
+body.saite-home .work-card{background:var(--saite-surface);border-color:var(--saite-border)}
+body.saite-home .work-info{background:var(--saite-surface)}
+body.saite-home .cta-section{background:linear-gradient(110deg,#123653,#08182f);border-color:var(--saite-border)}
+body.saite-home .cta-icon{background:#164869;border-color:var(--saite-accent)}
+body.saite-home .mobile-nav,body.saite-home .preview-dialog{background:#0a2137;border-color:var(--saite-border)}
+body.saite-home .profile-menu,body.saite-home .login-button,body.saite-home .menu-toggle{background:#0d2840;border-color:var(--saite-border)}
+body.saite-home .project-arrow,body.saite-home .work-actions a{background:#0e2b46;border-color:var(--saite-border)}
+body.saite-home .project-dots button[aria-current=true]{background:var(--saite-accent)}
+html:has(>body.saite-home){overflow-x:clip}
+body.saite-home .hero{isolation:isolate;overflow:clip}
+body.saite-home .hero-visual{min-width:0;max-width:100%;overflow:clip;contain:paint}
+body.saite-home .projects-viewport{max-width:100%;overflow-x:clip}
+body.saite-sobre .hero-panel{background:linear-gradient(108deg,#091b31,#123b59);border-color:var(--saite-border)}
+body.saite-sobre .hero-panel::before{opacity:.34;filter:hue-rotate(55deg)}
+body.saite-sobre .hero-slogan{font-family:var(--saite-font-display);font-weight:600;letter-spacing:-.045em}
+body.saite-sobre :is(.hero-panel,.perspective-panel,.assembly,.story-card,.resume-card){border-color:var(--saite-border)}
+body.saite-sobre :is(.perspective-panel,.assembly,.story-card,.resume-card){background-color:var(--saite-surface)}
+body.saite-orcamento .form-panel{background:linear-gradient(145deg,#10253d,#09192e);border-color:var(--saite-border)}
+body.saite-orcamento .plan-card{background:linear-gradient(155deg,#112c45,#0b1c32);border-color:var(--saite-border)}
+body.saite-orcamento .plan-card[aria-pressed=true],body.saite-orcamento .plan-featured:not([aria-pressed=true]){background:linear-gradient(155deg,#143d61,#0c2945);border-color:var(--saite-accent)}
+body.saite-orcamento .submit-button:not(:disabled){background:linear-gradient(115deg,#09c7fd,#5cecff);color:#082035}
+body.saite-orcamento .form-field :is(input,select,textarea){background:#07182b;border-color:var(--saite-border);color:var(--saite-ink)}
+body.saite-orcamento .form-field :is(input,select,textarea):focus{border-color:var(--saite-accent);box-shadow:0 0 0 3px rgba(9,199,253,.14)}
+body.saite-orcamento .visual-orb{filter:hue-rotate(55deg)}
+body.saite-contato .header .brand span,body.saite-contato .intro em,body.saite-contato .eyebrow,body.saite-contato .steps b,body.saite-contato .fields label span{color:var(--saite-cyan)}
+body.saite-contato .form-card{background:var(--saite-surface);border-color:var(--saite-border);box-shadow:0 16px 45px rgba(1,7,22,.22)}
+body.saite-contato .steps b,body.saite-contato :is(input,textarea,select){border-color:var(--saite-border)}
+body.saite-contato :is(input,textarea,select){background:#07182b;color:var(--saite-ink)}
+body.saite-contato .submit:not(:disabled){background:var(--saite-accent);color:#052038}
+body.saite-contato .success{background:#102c45;border-color:var(--saite-border);color:var(--saite-ink)}
+@media(max-width:600px){body.saite-home .projects-viewport{overflow-x:auto}body.saite-home .project-arrow,body.saite-home .preview-open,body.saite-home .work-actions a{min-height:44px;min-width:44px}body.saite-home .hero h1{font-size:clamp(39px,9.5vw,58px);letter-spacing:-.055em}}
+@media(prefers-reduced-motion:reduce){:is(body.saite-home,body.saite-sobre,body.saite-orcamento,body.saite-contato) *{scroll-behavior:auto!important}}

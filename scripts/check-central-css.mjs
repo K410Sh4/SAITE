@@ -22,7 +22,7 @@ for (const [filename, page] of pages) {
   const html = readFileSync(path.join(root, filename), 'utf8');
   const links = [...html.matchAll(/<link\b[^>]*rel=["']stylesheet["'][^>]*href=["']\.\/([^"']+)["']/g)]
     .map(m => m[1]);
-  assert.deepEqual(links, ['saite.css?v=20261107-css'], filename + ': CSS público deve usar somente saite.css');
+  assert.deepEqual(links, ['saite.css?v=20261107-identity-v2'], filename + ': CSS público deve usar somente saite.css');
   assert.ok(html.includes('class="saite-' + page + '"') || html.includes('class="saite-' + page + ' '), filename + ': classe da página ausente');
   assert.doesNotMatch(html, /\bstyle=["']|<style\b/i, filename + ': CSS inline não é permitido');
 }
