@@ -127,3 +127,12 @@ As melhorias reduzem trabalho desnecessário, mas FPS, consumo de energia e mem�
 ## Nota de manutenção — versão anterior
 
 As seções antigas deste README sobre carrossel 3D, blur do preview e `projects.js` descrevem o layout anterior, mantido no histórico do repositório para eventual consulta. Não fazem parte da página inicial atual, que usa `home.js` e `home.css`.
+
+## Auditoria mobile e reorganização da página inicial
+
+- Ordem da página: **Hero → Confira alguns projetos → Benefícios → Essencial/Comercial/Inteligente → Chamada final de orçamento**.
+- O menu mobile preserva os links originais e a seção de projetos continua usando swipe, indicadores e setas.
+- Cabeçalho deixa de ficar sobreposto ao conteúdo durante a rolagem em telas até 860px; a versão desktop permanece como antes.
+- Ajuste de `text-size-adjust`, largura dos contêineres, cartões e espaçamentos responsivos, evitando cortes e excesso de espaço no celular.
+- Redução das alturas da ilustração principal, dos cards de projetos e dos cards de benefícios na faixa até 600px; a paleta verde/amarelo e as páginas Sobre mim/Orçamento foram preservadas.
+- Se o navegador do usuário aplicar zoom manual ou escala de interface do sistema, o layout ainda pode parecer maior, e deve ser inspecionado no dispositivo.
