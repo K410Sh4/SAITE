@@ -59,7 +59,7 @@ function parseJwtPart(s) {
 async function verifyGoogleIdToken(request, env) {
   const header = request.headers.get('authorization') || '';
   if (!/^Bearer [A-Za-z0-9._-]+$/.test(header)) return false;
-  if (!env.GOOGLE_CLIENT_ID || !(env.ADMIN_EMAIL || env.ADMIN_GOOGLE_SUB)) return false;
+  if (!env.GOOGLE_CLIENT_ID?.endsWith('.apps.googleusercontent.com') || env.GOOGLE_CLIENT_ID.startsWith('PREENCHA_') || !(env.ADMIN_EMAIL || env.ADMIN_GOOGLE_SUB)) return false;
   const jwt = header.slice(7);
   if (jwt.length > 6000) return false;
   try {
@@ -112,7 +112,7 @@ async function siteverify(token, ip, env) {
 async function receive(request, env) {
   const origin = request.headers.get('origin') || '';
   if (origin !== PUBLIC_ORIGIN) return json({error:'Origem nao autorizada.'},403,origin);
-  if (!env.DB || !env.TURNSTILE_SECRET || !env.HASH_SALT || !env.GOOGLE_CLIENT_ID?.endsWith('.apps.googleusercontent.com') || !(env.ADMIN_EMAIL || env.ADMIN_GOOGLE_SUB))
+  if (!env.DB || !env.TURNSTILE_SECRET || !env.HASH_SALT || !env.GOOGLE_CLIENT_ID?.endsWith('.apps.googleusercontent.com') || env.GOOGLE_CLIENT_ID.startsWith('PREENCHA_') || !(env.ADMIN_EMAIL || env.ADMIN_GOOGLE_SUB))
     return json({error:'Atendimento ainda nao configurado.'},503,origin);
   let input;
   try { input = await bodyJson(request); }
@@ -134,12 +134,14 @@ async function receive(request, env) {
   const ipHash = await digest(ip, env.HASH_SALT);
   if (!(await throttle(env.DB, 'ip:'+ipHash, now, 3600, 10)))
     return json({error:'Limite temporario de envios atingido.'},429,origin,{'Retry-After':'3600'});
-  const emailHash = await digest(email, env.HASH_SALT);
-  if (!(await throttle(env.DB, 'email:'+emailHash, now, 3600, 4)))
-    return json({error:'Aguarde antes de enviar outra solicitacao.'},429,origin,{'Retry-After':'3600'});
+  // Cobrar o limite por e-mail SOMENTE apos validar um desafio legitimo.
+  // Caso contrario, terceiros poderiam bloquear um endereço arbitrario.
   let approved = false;
   try { approved = await siteverify(turnstile, ip, env); } catch {}
   if (!approved) return json({error:'Validacao antispam nao concluida. Tente novamente.'},403,origin);
+  const emailHash = await digest(email, env.HASH_SALT);
+  if (!(await throttle(env.DB, 'email:'+emailHash, now, 3600, 4)))
+    return json({error:'Aguarde antes de enviar outra solicitacao.'},429,origin,{'Retry-After':'3600'});
   const fingerprint = await digest(email+'|'+source+'|'+subject+'|'+message, env.HASH_SALT);
   const recent = await env.DB.prepare(
     "SELECT id FROM requests WHERE fingerprint=? AND created_at>=datetime('now','-10 minutes') LIMIT 1"
@@ -203,7 +205,7 @@ export default {
   async fetch(request,env) {
     const url = new URL(request.url), path=url.pathname;
     if(path==='/api/health'&&request.method==='GET')
-      return json({ok:true,ready:!!(env.DB&&env.TURNSTILE_SECRET&&env.HASH_SALT&&env.GOOGLE_CLIENT_ID?.endsWith('.apps.googleusercontent.com')&&(env.ADMIN_EMAIL||env.ADMIN_GOOGLE_SUB))});
+      return json({ok:true,ready:!!(env.DB&&env.TURNSTILE_SECRET&&env.HASH_SALT&&env.GOOGLE_CLIENT_ID?.endsWith('.apps.googleusercontent.com')&&!env.GOOGLE_CLIENT_ID.startsWith('PREENCHA_')&&(env.ADMIN_EMAIL||env.ADMIN_GOOGLE_SUB))});
     if(path==='/api/requests' && request.method==='OPTIONS') {
       if(request.headers.get('Origin')!==PUBLIC_ORIGIN)return new Response(null,{status:403});
       return new Response(null,{status:204,headers:{
