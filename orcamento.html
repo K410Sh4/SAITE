@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer" />
-  <meta http-equiv="Content-Security-Policy" content="base-uri 'self'; object-src 'none'; upgrade-insecure-requests; form-action 'self' https://formsubmit.co" />
+  <meta http-equiv="Content-Security-Policy" content="base-uri 'self'; object-src 'none'; upgrade-insecure-requests; form-action 'none'" />
   <meta name="theme-color" content="#0a0c12">
   <meta name="description" content="Solicite um orçamento de site com o SAITE: Essencial, Comercial ou Inteligente. Conte o que sua empresa faz e receba uma proposta personalizada.">
   <title>Solicite seu orçamento | SAITE</title>
@@ -13,6 +13,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./orcamento.css">
+  <script src="./inbox-public-config.js" defer></script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
   <script src="./orcamento.js" defer></script>
 </head>
 <body>
@@ -113,19 +115,18 @@
         <p>Estas informações vão me ajudar a entender o seu projeto. Os campos com <strong>*</strong> são obrigatórios.</p>
       </div>
 
-      <form id="form-orcamento" method="POST" action="https://formsubmit.co/elgator833@gmail.com" accept-charset="UTF-8">
-        <input type="hidden" name="_subject" value="[SAITE] Nova solicitação de orçamento">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="true">
-        <input type="hidden" name="_next" value="https://k410sh4.github.io/SAITE/orcamento-recebido.html">
-        <input type="hidden" name="_url" value="https://k410sh4.github.io/SAITE/orcamento.html">
+      <form id="form-orcamento" novalidate>
         <div class="honeypot" aria-hidden="true"><label for="form-honey">Não preencha este campo</label><input type="text" id="form-honey" name="_honey" tabindex="-1" autocomplete="off"></div>
         <div class="form-grid">
+          <div class="form-field">
+            <label for="nome"><span class="field-icon" aria-hidden="true">◈</span> Seu nome <span class="required">*</span></label>
+            <input id="nome" name="name" type="text" minlength="2" maxlength="80" autocomplete="name" placeholder="Como podemos chamar você?" required>
+          </div>
           <div class="form-field">
             <label for="email"><span class="field-icon" aria-hidden="true">✉</span> Seu e-mail <span class="required">*</span></label>
             <input id="email" name="email" type="email" maxlength="254" autocomplete="email" inputmode="email" placeholder="exemplo@dominio.com" required>
           </div>
-          <div class="form-field">
+          <div class="form-field field-full">
             <label for="tipo-site"><span class="field-icon" aria-hidden="true">▤</span> Tipo de site <span class="required">*</span></label>
             <select id="tipo-site" name="Tipo de site" required>
               <option value="">Selecione uma opção</option>
@@ -145,11 +146,20 @@
         </div>
 
         <div class="form-submit-area">
-          <button class="submit-button" type="submit"><span aria-hidden="true">➤</span> Enviar solicitação de orçamento <span aria-hidden="true">↗</span></button>
-          <p class="submit-hint">O pedido será encaminhado para <strong>elgator833@gmail.com</strong> após a ativação e as verificações do serviço de envio.</p>
-          <p class="privacy-note">O envio é processado pelo <a href="https://formsubmit.co/" target="_blank" rel="noopener noreferrer">FormSubmit</a>. Não informe senhas ou dados sensíveis. Um desafio antispam pode ser exibido. A solicitação não é uma contratação.</p>
+          <div id="orcamento-turnstile" class="quote-turnstile" aria-label="Verificação de segurança contra envios automatizados"></div>
+          <p id="orcamento-setup" class="quote-alert" role="status" hidden>O atendimento seguro está sendo ativado. O envio ficará disponível após a confirmação das configurações.</p>
+          <button id="orcamento-submit" class="submit-button" type="submit" disabled><span aria-hidden="true">➤</span> Enviar solicitação de orçamento <span aria-hidden="true">↗</span></button>
+          <p id="orcamento-status" class="quote-feedback" role="status" aria-live="polite"></p>
+          <p class="submit-hint">Sua solicitação será registrada na <strong>central privada do SAITE</strong>. A resposta será enviada para o e-mail informado.</p>
+          <p class="privacy-note">Nome, e-mail e mensagem serão utilizados para o atendimento, com proteção contra spam. Não informe senhas ou documentos sensíveis. A solicitação não constitui contratação. O e-mail informado não é verificado quanto à titularidade.</p>
         </div>
       </form>
+      <div id="orcamento-confirmacao" class="quote-success" role="status" hidden>
+        <strong>Solicitação recebida na central!</strong>
+        <p>Seu orçamento foi registrado com sucesso. Responderemos pelo e-mail que você informou.</p>
+        <p id="orcamento-protocolo"></p>
+        <a href="./orcamento.html">Enviar outro orçamento ↗</a>
+      </div>
     </section>
   </main>
 
