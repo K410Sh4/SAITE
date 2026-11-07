@@ -141,4 +141,6 @@ $('signout').addEventListener('click',()=>{
   try{google.accounts.id.disableAutoSelect();}catch{}
   showLogin('Sessão encerrada neste navegador.');
 });
+// Atualiza a caixa enquanto esta aberta; nao requer notificacoes ou permissoes de push.
+setInterval(()=>{if(idToken&&!document.hidden)load(false);},60000);
 boot();
