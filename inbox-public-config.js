@@ -1,7 +1,6 @@
-// Apenas configuracoes PUBLICAS. Nunca inclua e-mails administrativos nem segredos aqui.
-// Configure somente apos implantar o Worker e validar o painel privado.
-// Exemplo: {apiBase: 'https://saite-inbox.<conta>.workers.dev',turnstileSiteKey:'0x...'}
+// Configuração PÚBLICA da central SAITE. Não armazenar credenciais privadas neste arquivo.
+// O servidor valida o token Turnstile antes de registrar solicitações.
 window.SAITE_INBOX_PUBLIC_CONFIG = Object.freeze({
-  apiBase: '',
-  turnstileSiteKey: ''
+  apiBase: 'https://saite-inbox.k410sh4-ai-forum-2026.workers.dev',
+  turnstileSiteKey: '0x4AAAAAAF2-Bx9RiXxkSa9S'
 });
