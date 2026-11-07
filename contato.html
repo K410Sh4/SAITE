@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#090b13">
+  <meta http-equiv="Content-Security-Policy" content="base-uri 'self'; object-src 'none'; upgrade-insecure-requests; form-action 'none'">
+  <meta name="description" content="Envie um pedido ou orçamento para a central segura SAITE.">
+  <title>Enviar solicitação | SAITE</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./contato.css">
+  <script src="./inbox-public-config.js" defer></script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+  <script src="./contato.js" defer></script>
+</head>
+<body>
+<header class="header"><a href="./index.html" class="brand">SAITE<span>.</span></a><a class="back" href="./index.html">← Voltar ao portfólio</a></header>
+<main class="layout">
+<section class="intro">
+ <p class="eyebrow">CENTRAL PRIVADA DE ATENDIMENTO</p>
+ <h1>Conte o que você <em>precisa.</em></h1>
+ <p>Envie sua solicitação sem precisar usar o WhatsApp. Informe um endereço de e-mail válido: será por ele que entraremos em contato com você.</p>
+ <div class="steps"><div><b>01</b><span>Você envia seu pedido</span></div><div><b>02</b><span>Recebemos em nossa central privada</span></div><div><b>03</b><span>Respondemos por e-mail</span></div></div>
+</section>
+<section class="form-card" aria-labelledby="form-title">
+ <p class="eyebrow">FORMULÁRIO SEGURO</p>
+ <h2 id="form-title">Sua solicitação</h2>
+ <div id="setup" role="status" class="setup" hidden>O atendimento por este formulário ainda está em implantação. O envio será habilitado após a ativação do servidor seguro.</div>
+ <form id="request-form" novalidate>
+ <div class="fields">
+  <label>Atendimento
+   <select name="source" id="source" required>
+    <option value="saite">SAITE · Criação de sites</option>
+    <option value="margot">Margot · Acessórios</option>
+    <option value="espaco-piscina">Espaço Piscina · Produtos</option>
+   </select>
+  </label>
+  <label>Seu nome <span>*</span><input name="name" id="name" type="text" maxlength="80" minlength="2" autocomplete="name" required placeholder="Como podemos chamar você?"></label>
+  <label>Seu e-mail para resposta <span>*</span><input name="email" id="email" type="email" maxlength="254" autocomplete="email" required placeholder="voce@exemplo.com"></label>
+  <label>Assunto <span>*</span><input name="subject" id="subject" type="text" minlength="4" maxlength="120" required placeholder="Ex.: Orçamento para site comercial"></label>
+  <label>Descreva seu pedido <span>*</span><textarea name="message" id="message" minlength="12" maxlength="3000" rows="7" required placeholder="Detalhes, referências ou produtos de interesse..."></textarea></label>
+  <div class="trap" aria-hidden="true"><label>Website <input name="website" autocomplete="off" tabindex="-1" type="text"></label></div>
+  <div id="turnstile-slot" class="challenge" aria-label="Verificação contra robôs"></div>
+  <p class="privacy">Usaremos seu nome, e-mail e mensagem exclusivamente para analisar e responder à solicitação. Os registros da central têm retenção de até 180 dias. Não envie senhas nem documentos sensíveis. Este formulário não verifica a propriedade do e-mail informado.</p>
+  <button id="send-request" class="submit" type="submit" disabled>Enviar solicitação <span aria-hidden="true">→</span></button>
+  <p id="form-status" role="status" class="status" aria-live="polite"></p>
+ </div>
+ </form>
+ <div id="success" class="success" hidden><h3>Pedido recebido</h3><p>Seu pedido foi registrado na central. Use o e-mail informado para acompanhar nossa resposta.</p><p id="protocol"></p><button id="another" type="button">Enviar outra solicitação</button></div>
+</section>
+</main>
+<footer>SAITE © 2026 · Seu contato é usado somente para atendimento.</footer>
+</body>
+</html>
